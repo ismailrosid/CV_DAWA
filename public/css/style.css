@@ -271,11 +271,11 @@ ol {
 }
 
 .header__top__left {
-    padding: 10px 0 13px;
+    padding: 5px 0 8px;
 }
 
 .header__top__left ul li {
-    font-size: 14px;
+    font-size: 12px;
     color: #1c1c1c;
     display: inline-block;
     margin-right: 45px;
@@ -308,7 +308,7 @@ ol {
 
 .header__top__right {
     text-align: right;
-    padding: 10px 0 13px;
+    padding: 5px 0 8px;
 }
 
 .header__top__right__social {
@@ -329,7 +329,7 @@ ol {
 } */
 
 .header__top__right__social a {
-    font-size: 14px;
+    font-size: 12px;
     display: inline-block;
     color: #1c1c1c;
     margin-right: 20px;
@@ -424,15 +424,15 @@ ol {
 }
 
 .header__logo {
-    padding: 15px 0;
+    padding: 10px 0;
 }
 
-.header__logo a {
+/* .header__logo a {
     display: inline-block;
-}
+} */
 
 .header__menu {
-    padding: 30px 0;
+    padding: 15px 0;
     text-align: center;
 }
 
@@ -476,8 +476,8 @@ ol {
     padding: 5px 15px;
 }
 
-.header__menu ul li.active a {
-    color: #7fad39;
+.header__menu ul li.active a i {
+   /* color: #cce47d; */
 }
 
 .header__menu ul li:hover .header__menu__dropdown {
@@ -486,8 +486,23 @@ ol {
     visibility: visible;
 }
 
+.header__menu ul li > a {
+    background-color: #469712;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    border-radius: 50%;
+    pointer-events: auto; /* Make sure links are clickable */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+    cursor: pointer; /* Change cursor to pointer to indicate link is clickable */
+}
+
 .header__menu ul li:hover > a {
-    color: #7fad39;
+    background-color: #367b09; /* Darker shade of green */
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2); /* Adding a subtle shadow */
 }
 
 .header__menu ul li:last-child {
@@ -495,11 +510,11 @@ ol {
 }
 
 .header__menu ul li a {
-    font-size: 14px;
+    font-size: 13px;
     color: #252525;
     text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-weight: 600;
+    letter-spacing: px;
     -webkit-transition: all, 0.3s;
     -moz-transition: all, 0.3s;
     -ms-transition: all, 0.3s;
@@ -511,33 +526,22 @@ ol {
 
 .header__phone {
     text-align: right;
-    padding: 20px 0;
+    /* padding: 10px 0; */
 }
 
 .header__search__phone {
     float: right;
+    display: flex;
+    align-items: center;
 }
 
 .header__search__phone__icon {
-    font-size: 18px;
+    font-size: 13px;
     color: #7fad39;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     background: #f5f5f5;
-    line-height: 50px;
-    text-align: center;
-    border-radius: 50%;
-    float: left;
-    margin-right: 20px;
-}
-
-.header__search__phone__icon {
-    font-size: 18px;
-    color: #7fad39;
-    height: 50px;
-    width: 50px;
-    background: #f5f5f5;
-    line-height: 50px;
+    line-height: 40px;
     text-align: center;
     border-radius: 50%;
     float: left;
@@ -546,16 +550,24 @@ ol {
 
 .header__search__phone__text {
     overflow: hidden;
+    line-height: 1; /* Mengurangi jarak antar baris */
 }
 
 .header__search__phone__text h5 {
+    font-size: 14px;
     color: #1c1c1c;
     font-weight: 700;
+    margin: 0px;
+    padding: 0px;
+    line-height: 1; /* Mengurangi jarak antar baris */
 }
 
 .header__search__phone__text span {
-    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
     color: #6f6f6f;
+    line-height: 1; /* Mengurangi jarak antar baris */
 }
 
 .header__cart ul {
@@ -1734,7 +1746,7 @@ ol {
 }
 
 .product__details__text .product__details__price {
-    font-size: 30px;
+    font-size: 20px;
     color: #dd2222;
     font-weight: 600;
     margin-bottom: 15px;
@@ -1845,7 +1857,7 @@ ol {
     left: 0;
     top: 12px;
     height: 1px;
-    width: 370px;
+    width: 450px;
     background: #ebebeb;
     content: "";
 }
@@ -1855,7 +1867,7 @@ ol {
     right: 0;
     top: 12px;
     height: 1px;
-    width: 370px;
+    width: 450px;
     background: #ebebeb;
     content: "";
 }
@@ -2366,9 +2378,8 @@ ol {
     color: #1c1c1c;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 1px solid #b2b2b2;
-    padding: 14px 20px 12px;
-    border-radius: 25px;
+    border-bottom: 1px solid #b2b2b2; /* Menambahkan border hanya di bagian bawah */
+    border-radius: 0px; /* Border radius dihilangkan untuk bagian lainnya */
 }
 
 .blog__item__text .blog__btn span {
@@ -3196,6 +3207,7 @@ ol {
     }
     .header__top {
         display: none;
+        position: fixed;
     }
     .header__menu {
         display: none;

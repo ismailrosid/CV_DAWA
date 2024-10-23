@@ -46,47 +46,49 @@
            <!-- Breadcrumb Section End -->
 
            <!-- Product Section Begin -->
-           <section class="product spad">
+           <section class="product spad p-0 mt-5 pt-2">
                <div class="container">
-                   <div class="filter__item">
-                       <div class="row">
-                           <div class="col-3">
-                               <h4 style=" color: #1c1c1c; font-weight: 700;">Kategori</h4>
+                   <div class="row">
+                       <div class="col-3">
+                           <h4 style=" color: #1c1c1c; font-weight: 700;">Kategori</h4>
+                       </div>
+                       <div class="col-4">
+                           <div class="filter__sort">
+                               <span>Urutkan Berdasarkan</span>
+                               <select name="sort_by" onchange="this.form.submit()">
+                                   <option value="0" {{ request('sort_by') == '0' ? 'selected' : '' }}>
+                                       Default</option>
+                                   <option value="az" {{ request('sort_by') == 'az' ? 'selected' : '' }}>Nama:
+                                       A-Z</option>
+                                   <option value="za" {{ request('sort_by') == 'za' ? 'selected' : '' }}>Nama:
+                                       Z-A</option>
+                               </select>
                            </div>
-                           <div class="col-4">
-                               <div class="filter__sort">
-                                   <div class="filter__sort">
-                                       <span>Urutkan Berdasarkan</span>
-                                       <select name="sort_by" onchange="this.form.submit()">
-                                           <option value="0" {{ request('sort_by') == '0' ? 'selected' : '' }}>
-                                               Default</option>
-                                           <option value="az" {{ request('sort_by') == 'az' ? 'selected' : '' }}>Nama:
-                                               A-Z</option>
-                                           <option value="za" {{ request('sort_by') == 'za' ? 'selected' : '' }}>Nama:
-                                               Z-A</option>
-                                       </select>
-                                   </div>
-                               </div>
-                           </div>
-                           <div class="col-5 d-flex justify-content-end">
-                               <div class="filter__found">
-                                   <h6><span>{{ $tumbuhan->count() }}</span> Tumbuhan Ditemukan</h6>
-                               </div>
+                       </div>
+                       <div class="col-5 d-flex justify-content-end">
+                           <div class="filter__found">
+                               <h6><span>{{ $tumbuhan->count() }}</span> Tumbuhan Ditemukan</h6>
                            </div>
                        </div>
                    </div>
-                   <div class="row">
+                   <div class="row mt-4">
                        <div class="col-lg-3 col-md-5">
                            <div class="sidebar">
                                <div class="sidebar__item">
-                                   <div class="d-flex gap-2 flex-wrap">
-                                       @foreach (range('A', 'Z') as $letter)
-                                           <a href="{{ route('tumbuhan.index', array_merge(request()->query(), ['letter' => $letter])) }}"
-                                               class="pp p-2 rounded text-center d-flex justify-content-center align-items-center  {{ request('letter') == $letter ? 'bg-dark text-white' : '' }}"
-                                               style="">
-                                               {{ $letter }}
-                                           </a>
-                                       @endforeach
+                                   <div class="blog__sidebar__item">
+                                       <ul>
+                                           <li>
+                                               <div class="d-flex gap-2 flex-wrap">
+                                                   @foreach (range('A', 'Z') as $letter)
+                                                       <a href="{{ route('tumbuhan.index', array_merge(request()->query(), ['letter' => $letter])) }}"
+                                                           class="pp p-2 rounded text-center d-flex justify-content-center align-items-center  {{ request('letter') == $letter ? 'bg-dark text-white' : '' }}"
+                                                           style="">
+                                                           {{ $letter }}
+                                                       </a>
+                                                   @endforeach
+                                               </div>
+                                           </li>
+                                       </ul>
                                    </div>
                                    {{-- <ul>
                                        @foreach (range('A', 'Z') as $letter)
@@ -124,7 +126,7 @@
                                                <ul class="option-blog">
                                                    <li>
                                                        <!-- Link ke controller show() dengan parameter ID -->
-                                                       <a target="_blank"
+                                                       <a target=""
                                                            href="{{ route('tumbuhan.show', ['id' => $item->id]) }}">
                                                            <i class="fas fa-eye"></i>
                                                        </a>

@@ -14,6 +14,13 @@ class ShopController extends Controller
         $categories = Category::all();
         $products = ProductHelper::filterProducts($request);
 
-        return view('frontpage.pages.shop', compact('categories', 'products'));
+        // print_r($products);
+        // die;
+        return view('frontpage.pages.shop.index', compact('categories', 'products'));
+    }
+
+    public function show($id)
+    {
+        return view('frontpage.pages.shop.show');
     }
 }

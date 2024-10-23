@@ -9,7 +9,7 @@
             <li class="{{ request()->is('/') ? 'active' : '' }}">
                 <a href="{{ url('/') }}">Beranda</a>
             </li>
-            <li class="{{ request()->is('shop') ? 'active' : '' }}">
+            {{-- <li class="{{ request()->is('shop') ? 'active' : '' }}">
                 <a href="{{ url('/shop') }}">Tentang Kami</a>
             </li>
             <li class="{{ request()->is('shop') ? 'active' : '' }}">
@@ -19,8 +19,8 @@
                 <a href="{{ url('/shop') }}">Tumbuhan</a>
             </li>
             <li class="{{ request()->is('shop') ? 'active' : '' }}">
-                <a href="{{ url('/shop') }}">Tips Herbal</a>
-            </li>
+                <a href="{{ url('/shop') }}">Tips & Info Herbal</a>
+            </li> --}}
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -33,77 +33,57 @@
     <div class="humberger__menu__contact">
         <ul>
             <li><i class="fa fa-envelope"></i> customercare@mediplants.co.id</li>
-            <li>Jam Operasional: Senin - Jumat 08:00 - 17:00</li>
+            {{-- <li>Jam Operasional: Senin - Jumat 08:00 - 17:00</li> --}}
         </ul>
     </div>
 </div>
 <!-- Humberger End -->
 
-<header class="header">
-    <div class="header__top" style="background-color: #7ead392f;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-6">
-                    <div class="header__top__left">
-                        <ul>
-                            <li><i class="fa fa-envelope"></i> customercare@mediplants.co.id</li>
-                            <li>Jam Operasional: Senin - Jumat 08:00 - 17:00</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="header__top__right">
-                        <div class="header__top__right__social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<header class="border fixed-top"
+    style="width: 100%; box-sizing: border-box; background-color: white">
     <div class="container">
-        <div class="row">
+        <div class="row d-flex align-items-center">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="{{ url('/') }}"><img src="{{ asset('img/logo.png') }}" alt="" /></a>
+                    <a href="{{ url('/') }}"><img class="w-50 h-50" src="{{ asset('img/logo.png') }}"
+                            alt="" /></a>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <nav class="header__menu">
+            <div class="col-lg-9 d-flex justify-content-end">
+                <nav style="margin-left: auto;" class="header__menu">
                     <ul>
-                        <li class="{{ request()->is('/') ? 'active' : '' }}">
-                            <a href="{{ url('/') }}">Beranda</a>
+                        <li class=" {{ request()->is('/') ? 'active' : '' }}">
+                            <a class="p-2 rounded-circle" href="{{ url('/') }}">
+                                <i class="text-white fas fa-home fs-5"></i>
+                            </a>
                         </li>
-                        <li class="{{ request()->is('tentang_kami') ? 'active' : '' }}">
-                            <a href="{{ url('/tentang_kami') }}">Tentang Kami</a>
+                        <li class="{{ request()->is('tentang-kami') ? 'active' : '' }}">
+                            <a class="p-2 rounded-circle" href="{{ url('/tentang-kami') }}">
+                                <i class="text-white fas fa-user fs-5"></i>
+                            </a>
                         </li>
-                        <li class="{{ request()->is('shop') ? 'active' : '' }}">
-                            <a href="{{ url('/shop') }}">Shop</a>
+                        <li class="{{ request()->is('tumbuhan') || request()->is('tumbuhan/*') ? 'active' : '' }}">
+                            <a class="p-2 rounded-circle" href="{{ url('/tumbuhan') }}">
+                                <i class="text-white fas fa-leaf fs-5"></i>
+                            </a>
                         </li>
-                        <li class="{{ request()->is('tumbuhan') ? 'active' : '' }}">
-                            <a href="{{ url('/tumbuhan') }}">Tumbuhan</a>
+                        <li class="{{ request()->is('herbal') ? 'active' : '' }}">
+                            <a class="p-2 rounded-circle" href="{{ url('/herbal') }}">
+                                <i class="text-white fas fa-info fs-5"></i>
+                            </a>
                         </li>
-                        <li class="{{ request()->is('tips_herbal') ? 'active' : '' }}">
-                            <a href="{{ url('/tips_herbal') }}">Tips Herbal</a>
+                        <li class="{{ request()->is('shop') || request()->is('shop/product/*') ? 'active' : '' }}">
+                            <a class="p-2 rounded-circle" href="{{ url('/shop') }}">
+                                <i class="text-white fas fa-handshake fs-5"></i>
+                            </a>
+                        </li>
+                        <li class="{{ request()->is('shop') || request()->is('shop/product/*') ? 'active' : '' }}">
+                            <a class="p-2 rounded-circle" href="{{ url('/shop') }}">
+                                <i class="text-white fas fa-shopping-cart fs-5"></i>
+                            </a>
                         </li>
                     </ul>
                 </nav>
-            </div>
-            <div class="col-lg-3">
-                <div class="header__phone">
-                    <div class="header__search__phone">
-                        <div class="header__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div style="text-align: start" class="header__search__phone__text">
-                            <h5>+6295344029393</h5>
-                            <span>Dukungan 24/7</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="humberger__open">

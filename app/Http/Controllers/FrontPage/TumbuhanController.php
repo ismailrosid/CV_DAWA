@@ -18,20 +18,26 @@ class TumbuhanController extends Controller
         $tumbuhan = TumbuhanHelper::filterTumbuhan($request);
 
         // Kirim data ke view, termasuk categories jika diperlukan
-        return view('frontpage.pages.tumbuhan', compact('tumbuhan'));
+        return view('frontpage.pages.tumbuhan.index', compact('tumbuhan'));
     }
 
     public function show($id)
     {
+
+
         // Ambil data tumbuhan berdasarkan ID
         $tumbuhan = Tumbuhan::find($id);
+
 
         // Pastikan tumbuhan ditemukan
         if (!$tumbuhan) {
             abort(404); // atau bisa kembalikan respons lain
         }
 
-        // Data untuk view
+        // // 
+
+        // // 
+        // // // Data untuk view
         $data = [
             'title' => $tumbuhan->nama_tumbuhan,
             'nama_latin' => $tumbuhan->nama_latin,
@@ -55,10 +61,13 @@ class TumbuhanController extends Controller
             'indikasi' => $tumbuhan->indikasi,
         ];
 
-        // Load view dan convert menjadi PDF
-        $pdf = PDF::loadView('pdf_template', $data);
+        // Gunakan helper untuk memfilter data tumbuhan
+        // $tumbuhan = TumbuhanHelper::filterTumbuhan($request);
+        return view('frontpage.pages.tumbuhan.show', compact('data'));
+        // // Load view dan convert menjadi PDF
+        // $pdf = PDF::loadView('pdf_template', $data);
 
-        // Tampilkan file PDF di browser
-        return $pdf->stream('DETAIl_TUMBUHAN.pdf');
+        // // Tampilkan file PDF di browser
+        // return $pdf->stream('DETAIl_TUMBUHAN.pdf');
     }
 }

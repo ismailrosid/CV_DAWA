@@ -20,12 +20,16 @@
                                     Kidul, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820</p>
                             </div>
                         </li>
-                        <li class="d-flex gap-3 align-items-center">
+                        <li class="d-flex gap-3 align-items-center my-2">
                             <div class="p-1 footer-icon">
                                 <i class="fa fa-phone-alt fs-1"></i>
                             </div>
                             <div>
-                                <p class="lh-1 mb-0">+6295344029393</p>
+                                {{-- No customer Care & No Marketing. --}}
+                                <p class="lh-1 mb-0">
+                                    <b>Customer Care:</b> <a href="">+6295344029393 </a><br>
+                                  <b> Marketing:</b><a href=""> +6295344029393</a>
+                                </p>
                             </div>
                         </li>
                         <li class="d-flex gap-3 align-items-center">

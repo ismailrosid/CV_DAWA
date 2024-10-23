@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
+    <!-- Primary -->
+    <title>Mediplants | Toko Obat Herbal di Cileungsi, Bogor</title>
+    <meta name="title" content="Mediplants | Toko Obat Herbal di Cileungsi, Bogor" />
+    <meta name="description" content="Mediplants adalah toko obat herbal terpercaya di Cileungsi, Bogor. Menyediakan berbagai produk herbal alami untuk meningkatkan kesehatan secara menyeluruh." />
+    
+    <!-- SEO Tags -->
+    <meta name="keywords" content="obat herbal, Mediplants, herbal alami, kesehatan, toko herbal, obat tradisional, Cileungsi, Bogor">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', 'Ogani | Template')</title>
+
+    <!-- Facebook Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ismailrosid.com/" />
+    <meta property="og:title" content="Mediplants | Toko Obat Herbal di Cileungsi, Bogor" />
+    <meta property="og:description" content="Mediplants adalah toko obat herbal terpercaya di Cileungsi, Bogor. Menyediakan berbagai produk herbal alami untuk meningkatkan kesehatan secara menyeluruh." />
+    <meta property="og:image" content="https://ismailrosid.com/images/og/og-image.png" />
+    
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ismailrosid.com/" />
+    <meta property="twitter:title" content="Mediplants | Toko Obat Herbal di Cileungsi, Bogor" />
+    <meta property="twitter:description" content="Mediplants adalah toko obat herbal terpercaya di Cileungsi, Bogor. Menyediakan berbagai produk herbal alami untuk meningkatkan kesehatan secara menyeluruh." />
+    <meta property="twitter:image" content="https://ismailrosid.com/images/og/og-image.png" />
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +49,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
 
+   
     <style>
+        /*  */
+        .fs-1 {
+            font-size: calc(1.625rem + 4.5vw);
+            /* Responsive font size */
+        }
+
+        .fs-2 {
+            font-size: calc(1.525rem + 3.3vw);
+            /* Responsive font size */
+        }
+
+        .fs-3 {
+            font-size: calc(1.425rem + 2.1vw);
+            /* Responsive font size */
+        }
+
+        .fs-4 {
+            font-size: calc(1.325rem + 0.9vw);
+            /* Responsive font size */
+        }
+
+        .fs-5 {
+            font-size: 1.25rem;
+            /* 20px */
+        }
+
+        .fs-6 {
+            font-size: 1rem;
+            /* 16px */
+        }
+
+        /*  */
         .footer-icon i {
             display: inline-block;
             height: 41px;
@@ -916,6 +967,26 @@
             text-overflow: ellipsis;
             /* menambahkan titik tiga */
         }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            /* batasi menjadi 5 baris */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* menambahkan titik tiga */
+        }
+
+        .full-screen-bg {
+            background-image: url('{{ asset('bg.jpeg') }}');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -931,7 +1002,7 @@
     @yield('content')
 
     <!-- Footer Section -->
-    @include('frontpage.partials.footer')
+    <!--@include('frontpage.partials.footer')-->
     <!-- Js Plugins -->
     <!-- Hapus jQuery Slim dan gunakan jQuery yang lengkap -->
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
