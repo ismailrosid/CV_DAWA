@@ -28,7 +28,7 @@
        <!-- Hero Section End -->
 
        <!-- Breadcrumb Section Begin -->
-       <section class="breadcrumb-section set-bg" data-setbg="{{ asset('img/breadcrumb.jpg') }}">
+       <section class="breadcrumb-section set-bg" data-setbg="{{ asset('bg.jpeg') }}">
            <div class="container">
                <div class="row">
                    <div class="col-lg-12 text-center">
@@ -85,9 +85,8 @@
                                <li><b>Bagikan </b>
                                    <div class="share">
                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                       <a href="#"><i class="fab fa-twitter"></i></a>
                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                       <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                       <a href="#"><i class="fab fa-twitter"></i></a>
                                    </div>
                                </li>
                            </ul>

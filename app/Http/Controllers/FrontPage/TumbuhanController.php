@@ -70,4 +70,9 @@ class TumbuhanController extends Controller
         // // Tampilkan file PDF di browser
         // return $pdf->stream('DETAIl_TUMBUHAN.pdf');
     }
+
+    public function daf_pus()
+    {
+        return view('frontpage.pages.tumbuhan.daftar_pustaka');
+    }
 }

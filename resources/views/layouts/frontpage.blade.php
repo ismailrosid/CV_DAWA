@@ -6,10 +6,12 @@
     <!-- Primary -->
     <title>Mediplants | Toko Obat Herbal di Cileungsi, Bogor</title>
     <meta name="title" content="Mediplants | Toko Obat Herbal di Cileungsi, Bogor" />
-    <meta name="description" content="Mediplants adalah toko obat herbal terpercaya di Cileungsi, Bogor. Menyediakan berbagai produk herbal alami untuk meningkatkan kesehatan secara menyeluruh." />
-    
+    <meta name="description"
+        content="Mediplants adalah toko obat herbal terpercaya di Cileungsi, Bogor. Menyediakan berbagai produk herbal alami untuk meningkatkan kesehatan secara menyeluruh." />
+
     <!-- SEO Tags -->
-    <meta name="keywords" content="obat herbal, Mediplants, herbal alami, kesehatan, toko herbal, obat tradisional, Cileungsi, Bogor">
+    <meta name="keywords"
+        content="obat herbal, Mediplants, herbal alami, kesehatan, toko herbal, obat tradisional, Cileungsi, Bogor">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -17,14 +19,16 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ismailrosid.com/" />
     <meta property="og:title" content="Mediplants | Toko Obat Herbal di Cileungsi, Bogor" />
-    <meta property="og:description" content="Mediplants adalah toko obat herbal terpercaya di Cileungsi, Bogor. Menyediakan berbagai produk herbal alami untuk meningkatkan kesehatan secara menyeluruh." />
+    <meta property="og:description"
+        content="Mediplants adalah toko obat herbal terpercaya di Cileungsi, Bogor. Menyediakan berbagai produk herbal alami untuk meningkatkan kesehatan secara menyeluruh." />
     <meta property="og:image" content="https://ismailrosid.com/images/og/og-image.png" />
-    
+
     <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://ismailrosid.com/" />
     <meta property="twitter:title" content="Mediplants | Toko Obat Herbal di Cileungsi, Bogor" />
-    <meta property="twitter:description" content="Mediplants adalah toko obat herbal terpercaya di Cileungsi, Bogor. Menyediakan berbagai produk herbal alami untuk meningkatkan kesehatan secara menyeluruh." />
+    <meta property="twitter:description"
+        content="Mediplants adalah toko obat herbal terpercaya di Cileungsi, Bogor. Menyediakan berbagai produk herbal alami untuk meningkatkan kesehatan secara menyeluruh." />
     <meta property="twitter:image" content="https://ismailrosid.com/images/og/og-image.png" />
 
     <!-- Google Font -->
@@ -49,8 +53,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
 
-   
+
     <style>
+        /*  */
+        .navbar-shadow {
+            /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+            border-bottom: 1px solid #e0d9d9;
+            /* Gaya border bottom hitam */
+            transition: border-bottom 0.3s ease;
+        }
+
         /*  */
         .fs-1 {
             font-size: calc(1.625rem + 4.5vw);
@@ -288,7 +300,7 @@
         }
 
         .filter-button-group button {
-            background: #b0b435;
+            background: #469712;
             color: #ffffff;
             border: none;
             cursor: pointer;
@@ -536,7 +548,7 @@
         }
 
         .option-blog li a:hover {
-            background: #b0b435;
+            background: #469712;
             color: #ffffff;
         }
 
@@ -745,6 +757,7 @@
             border: none;
         }
 
+
         .about-box-main a.btn {
             padding: 12px 15px;
         }
@@ -766,7 +779,7 @@
             width: 100%;
             height: 0;
             border-radius: 0px;
-            background: #b0b435;
+            background: #469712;
             position: absolute;
             top: 0;
             left: 0;
@@ -831,7 +844,7 @@
 
         .our-team {
             padding-block-start: 10px;
-            border-bottom: 2px solid #b0b435;
+            border-bottom: 2px solid #469712;
         }
 
         .our-team {
@@ -905,7 +918,7 @@
 
         .our-team .social li a:hover {
             width: 35px;
-            background: #b0b435;
+            background: #469712;
             transition-delay: 0s;
         }
 
@@ -913,7 +926,7 @@
             width: 35px;
             height: 35px;
             line-height: 35px;
-            background: #b0b435;
+            background: #469712;
             text-align: center;
             color: #fff;
             position: absolute;
@@ -952,6 +965,19 @@
             color: #b2b2b2;
         }
 
+        .ppp {
+            border: 1px solid #b2b2b2;
+            font-size: 14px;
+            color: #b2b2b2;
+        }
+
+
+        .ppp:hover {
+            background: #7fad39;
+            border-color: #7fad39;
+            color: #ffffff;
+        }
+
         .pp:hover {
             background: #7fad39;
             border-color: #7fad39;
@@ -978,6 +1004,8 @@
             /* menambahkan titik tiga */
         }
 
+        /*  */
+
         .full-screen-bg {
             background-image: url('{{ asset('bg.jpeg') }}');
             background-size: cover;
@@ -986,6 +1014,396 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .full-screen-bg .content {
+            margin-top: 72px;
+        }
+
+
+
+        /* Gaya untuk kontainer utama link */
+        .daftar-pustaka-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        /* Gaya teks "Daftar Pustaka" */
+        .daftar-pustaka-text {
+            color: #1c1c1c;
+            font-weight: 700;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        /* Efek hover untuk teks "Daftar Pustaka" */
+        .daftar-pustaka-text:hover {
+            color: #7fad39;
+            /* Ubah warna saat hover */
+        }
+
+        .about-box-main li {
+            margin-bottom: 15px;
+            /* Menambah jarak antar item */
+            text-align: justify;
+            /* Menyelaraskan teks */
+        }
+
+
+
+        /* Default styles (untuk semua layar yang lebih kecil dari 576px) */
+        /* Tambahkan CSS default Anda di sini untuk ponsel kecil dan layar yang lebih kecil */
+
+        /* Small devices (phones, min-width: 576px) */
+        @media (max-width: 576px) {
+
+            .content-header h2 {
+                font-size: 2rem;
+                font-weight: 600;
+                line-height: 1.2;
+                white-space: nowrap;
+            }
+
+            .content-header p {
+                font-size: 1rem;
+                line-height: 1.5;
+                /* Menambahkan jarak antar baris */
+                font-weight: 400;
+                /* white-space: nowrap; */
+
+                /* Mencegah teks memecah baris */
+            }
+
+            .content-header p br {
+                display: none;
+            }
+
+
+
+            .search-icon {
+                border-top-left-radius: 1rem !important;
+                border-bottom-left-radius: 1rem !important;
+                background-color: white;
+                padding: 0.2rem 0.5rem;
+                font-size: 0.875rem;
+                line-height: 1.5;
+                border-radius: 0.2rem;
+            }
+
+            .search-icon i {
+                color: #9E9E9E;
+            }
+
+            .search-input {
+                font-size: 1rem;
+                border-top-right-radius: 1rem !important;
+                border-bottom-right-radius: 1rem !important;
+                padding: 0.2rem 0.5rem;
+                font-size: 0.875rem;
+                line-height: 1.5;
+                border-radius: 0.2rem;
+                color: #9E9E9E;
+                border: none;
+                outline: none;
+                box-shadow: none;
+            }
+
+            .article-text {
+                border: 1px solid;
+                line-height: 1.5;
+                width: 100%;
+                text-align: justify;
+                padding: 1rem;
+                font-size: 0.8rem;
+            }
+
+
+            .hero__search__form {
+                width: 100%;
+                height: 50px;
+                border: 1px solid #ebebeb;
+                position: relative;
+                float: left;
+            }
+
+            .hero__search__form .hero__search__categories {
+                display: none;
+            }
+
+            .hero__search__form .hero__search__categories span {
+                display: none;
+            }
+
+            .hero__search__form input {
+                width: 100%;
+                border: none;
+                height: 48px;
+                font-size: 16px;
+                color: #b2b2b2;
+                padding-left: 20px;
+            }
+
+            .hero__search__form input::placeholder {
+                color: #b2b2b2;
+            }
+
+            .hero__search__form button {
+                position: absolute;
+                right: 0;
+                top: -1px;
+                height: 50px;
+                background-color: #469712;
+            }
+
+            .site__search__form {
+                font-size: 14px;
+                color: #ffffff;
+                font-weight: 800;
+                text-transform: uppercase;
+                display: inline-block;
+                padding: 13px 15px 12px;
+                background: #469712;
+                border: none;
+            }
+
+            .product {
+                padding-top: 1.5rem;
+            }
+        }
+
+        /*  */
+        .hero.hero-normal .hero__search {
+            margin-bottom: 0;
+        }
+
+
+        /* Medium devices (tablets, min-width: 768px) */
+        @media (min-width: 768px) {
+
+            .content-header h2 {
+                font-size: 3rem;
+                font-weight: 700;
+                line-height: 1.2;
+                white-space: nowrap;
+            }
+
+            .content-header p {
+                font-size: 1.2rem;
+                line-height: 1.5;
+                /* Menambahkan jarak antar baris */
+                font-weight: 500;
+                white-space: nowrap;
+                /* Mencegah teks memecah baris */
+            }
+
+            .search-icon {
+                border-top-left-radius: 1rem !important;
+                border-bottom-left-radius: 1rem !important;
+                background-color: white;
+            }
+
+            .search-icon i {
+                color: #9E9E9E;
+            }
+
+            .search-input {
+                font-size: 1rem;
+                border-top-right-radius: 1rem !important;
+                border-bottom-right-radius: 1rem !important;
+                border-radius: 0.2rem;
+                color: #9E9E9E;
+                border: none;
+                outline: none;
+                box-shadow: none;
+            }
+
+            .hero__search__form {
+                width: 100%;
+                height: 50px;
+                border: 1px solid #ebebeb;
+                position: relative;
+                float: left;
+            }
+
+            .hero__search__form .hero__search__categories {
+                width: 25%;
+                float: left;
+                font-size: 14px;
+                color: #1c1c1c;
+                font-weight: 700;
+                padding-left: 18px;
+                padding-top: 11px;
+                position: relative;
+            }
+
+            .hero__search__form .hero__search__categories:after {
+                position: absolute;
+                right: 0;
+                top: 14px;
+                height: 20px;
+                width: 1px;
+                background: #000000;
+                opacity: 0.1;
+                content: "";
+            }
+
+            .hero__search__form .hero__search__categories span {
+                position: absolute;
+                right: 14px;
+                top: 14px;
+            }
+
+            .hero__search__form input {
+                width: 70%;
+                border: none;
+                height: 48px;
+                font-size: 16px;
+                color: #b2b2b2;
+                padding-left: 20px;
+            }
+
+            .hero__search__form input::placeholder {
+                color: #b2b2b2;
+            }
+
+            .hero__search__form button {
+                position: absolute;
+                right: 0;
+                top: -1px;
+                height: 50px;
+                background-color: #469712;
+            }
+
+            .site__search__form {
+                font-size: 14px;
+                color: #ffffff;
+                font-weight: 800;
+                text-transform: uppercase;
+                display: inline-block;
+                padding: 13px 15px 12px;
+                background: #469712;
+                border: none;
+            }
+
+            .product {
+                padding-top: 1.5rem;
+            }
+        }
+
+        /* Large devices (desktops, min-width: 992px) */
+        @media (min-width: 992px) {
+
+            .content-header h2 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                line-height: 1.2;
+                white-space: nowrap;
+            }
+
+            .content-header p {
+                font-size: 1.2rem;
+                font-weight: 400;
+                white-space: nowrap;
+            }
+
+            .search-icon {
+                border-top-left-radius: 1rem !important;
+                border-bottom-left-radius: 1rem !important;
+                background-color: white;
+            }
+
+            .search-icon i {
+                color: #9E9E9E;
+            }
+
+            .search-input {
+                font-size: 1rem;
+                border-top-right-radius: 1rem !important;
+                border-bottom-right-radius: 1rem !important;
+                color: #9E9E9E;
+                border: none;
+                outline: none;
+                box-shadow: none;
+            }
+
+            .article-text {
+                border: 2px solid;
+                width: 50%;
+                text-align: justify;
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+
+            .hero__search__form {
+                width: 100%;
+                height: 50px;
+                border: 1px solid #ebebeb;
+                position: relative;
+                float: left;
+            }
+
+            .hero__search__form .hero__search__categories {
+                width: 20%;
+                float: left;
+                font-size: 16px;
+                color: #1c1c1c;
+                font-weight: 700;
+                padding-left: 18px;
+                padding-top: 11px;
+                position: relative;
+            }
+
+            .hero__search__form .hero__search__categories:after {
+                position: absolute;
+                right: 0;
+                top: 14px;
+                height: 20px;
+                width: 1px;
+                background: #000000;
+                opacity: 0.1;
+                content: "";
+            }
+
+            .hero__search__form .hero__search__categories span {
+                position: absolute;
+                right: 14px;
+                top: 14px;
+            }
+
+            .hero__search__form input {
+                width: 70%;
+                border: none;
+                height: 48px;
+                font-size: 16px;
+                color: #b2b2b2;
+                padding-left: 20px;
+            }
+
+            .hero__search__form input::placeholder {
+                color: #b2b2b2;
+            }
+
+            .hero__search__form button {
+                position: absolute;
+                right: 0;
+                top: -1px;
+                height: 50px;
+                background-color: #469712;
+            }
+
+            .product {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
+        }
+
+        /* Extra large devices (larger desktops, min-width: 1200px) */
+        @media (min-width: 1200px) {
+            /* Tambahkan CSS untuk layar besar dengan min-width 1200px */
         }
     </style>
 </head>
@@ -1002,7 +1420,10 @@
     @yield('content')
 
     <!-- Footer Section -->
-    <!--@include('frontpage.partials.footer')-->
+    @if (!Request::is('/'))
+        @include('frontpage.partials.footer')
+    @endif
+
     <!-- Js Plugins -->
     <!-- Hapus jQuery Slim dan gunakan jQuery yang lengkap -->
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
@@ -1017,6 +1438,17 @@
         });
     </script>
 
+    <script>
+        // Mengambil elemen gambar dengan id 'logo-img'
+        const logoImg = document.getElementById('logo-img');
+
+        // Mengukur lebar gambar
+        const imgWidth = logoImg.offsetWidth;
+
+        // Menampilkan lebar gambar di console
+        console.log('Lebar gambar (offsetWidth): ' + imgWidth + 'px');
+    </script>
+
     <!-- Plugins lainnya -->
     <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
@@ -1025,7 +1457,41 @@
     <script src="{{ asset('js/main.js') }}"></script>
 
     <script>
-        // Saat tombol accordion di klik
+        $(document).ready(function() {
+            function checkScroll() {
+                if ($(window).scrollTop() > 50) {
+                    $('.header').addClass('navbar-shadow');
+                } else {
+                    $('.header').removeClass('navbar-shadow');
+                }
+            }
+
+            // Cek posisi scroll saat halaman dimuat
+            checkScroll();
+
+            // Tambah/hapus border bottom saat scroll terjadi
+            $(window).scroll(function() {
+                checkScroll();
+            });
+
+            $('#toggle-dafpus').click(function() {
+                // Toggle daftar pustaka visibility
+                // Toggle daftar pustaka visibility by adding/removing the d-none class
+                // $('#daftar-pustaka').toggleClass('d-none');
+                // Toggle daftar pustaka visibility with slow animation
+                $('#daftar-pustaka').slideToggle('slow');
+
+                // Toggle icon rotation
+                $('#icon-dafpus').toggleClass('rotated');
+                if ($('#icon-dafpus').hasClass('rotated')) {
+                    // Rotate up (180 degrees)
+                    $('#icon-dafpus').css('transform', 'rotate(180deg)');
+                } else {
+                    // Rotate down (0 degrees)
+                    $('#icon-dafpus').css('transform', 'rotate(0deg)');
+                }
+            });
+        });
     </script>
 
 </html>

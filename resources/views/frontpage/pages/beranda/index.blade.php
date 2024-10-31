@@ -5,34 +5,28 @@
 @section('content')
     <main>
         <section class="full-screen-bg d-flex justify-content-center align-items-center">
-            <div style="margin-top: 72px;" class="content text-center text-white w-75">
-                <header>
-                    <h2 class="font-weight-bold">300</h2>
-                    <h2 class="font-weight-bold">Tumbuhan Obat</h2>
-                    <h2 class="font-weight-bold">Indonesia</h2>
-                    <p style="font-size: 1.2rem; font-weight: 400;">Menguak kekayaan alam Indonesia Tentang <br> 300 Tumbuhan Obat
+            <div class="content text-center text-white w-75">
+                <header class="content-header">
+                    <h2 class="">300</h2>
+                    <h2 class="">Tumbuhan Obat</h2>
+                    <h2 class="">Indonesia</h2>
+                    <p class="my-1 my-md-3">Menguak kekayaan alam Indonesia Tentang <br> 300 Tumbuhan Obat
                         Indonesia dan Lainnya
                     </p>
                 </header>
-
-                <div class="px-5 d-flex justify-content-center">
-                    <div class="input-group input-group-lg mb-3 w-50">
+                <div class="px-md-2 px-lg-4 d-flex justify-content-center">
+                    <div class="input-group mt-2 mt-md-0 mb-3 w-100 w-md-75 w-lg-50">
                         <div class="input-group-prepend">
-                            <span class="input-group-text border-0" id="basic-addon1"
-                                style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; background-color: white; color: #9E9E9E;">
+                            <span class="input-group-text border-0  search-icon" id="">
                                 <i class="fas fa-search"></i>
                             </span>
                         </div>
-                        <input
-                            style="font-size: 1rem; border-top-right-radius: 1rem; border-bottom-right-radius: 1rem; color: #9E9E9E; border: none; outline: none; box-shadow: none;"
-                            type="text" class="pl-0 form-control" placeholder="Search" aria-label="Search"
-                            aria-describedby="basic-addon1" onfocus="this.style.boxShadow='none'">
+                        <input type="text" class="pl-0 form-control search-input" placeholder="Search"
+                            aria-label="Search" aria-describedby="" onfocus="this.style.boxShadow='none'">
                     </div>
                 </div>
-
-
-                <article class="d-flex justify-content-center w-100 mt-4">
-                    <p style="border: 2px solid; width: 50%; text-align: justify; padding: 1rem;">
+                <article class="d-flex justify-content-center w-100 mt-2">
+                    <p class="article-text">
                         Web ini, dilengkapi dengan nama umum tumbuhan, nama ilmiah tumbuhan, gambar tumbuhan, sinonim, nama
                         daerah,
                         klasifikasi tumbuhan, deskripsi tumbuhan, bagian yang digunakan, kandungan & aktifitas, indikasi,

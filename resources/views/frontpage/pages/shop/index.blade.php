@@ -6,7 +6,7 @@
 
        <form action="{{ route('shop.index') }}" method="GET">
            <!-- Hero Section Begin -->
-           <section class="hero hero-normal">
+           <section style="margin-top: 80px;" class="hero hero-normal">
                <div class="container">
                    <div class="row">
                        <div class="col-12">
@@ -18,7 +18,10 @@
                                    </div>
                                    <input type="text" name="name"
                                        placeholder="Cari produk, misalnya: Tomat, Apel, dll" value="{{ request('name') }}">
-                                   <button type="submit" class="site-btn">CARI</button>
+                                   <button type="submit" class="site__search__form d-none d-lg-block">CARI</button>
+                                   <button type="submit" class="site__search__form d-lg-none">
+                                       <i class="fas fa-search fs-5"></i> <!-- This is the Font Awesome search icon -->
+                                   </button>
                                </div>
                            </div>
                        </div>
@@ -28,7 +31,7 @@
            <!-- Hero Section End -->
 
            <!-- Breadcrumb Section Begin -->
-           <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+           <section class="breadcrumb-section set-bg" data-setbg="bg.jpeg">
                <div class="container">
                    <div class="row">
                        <div class="col-lg-12 text-center">
@@ -46,49 +49,22 @@
            <!-- Breadcrumb Section End -->
 
            <!-- Product Section Begin -->
-           <section class="product spad p-0 mt-5 pt-2">
+           <section class="product spad ">
                <div class="container">
-                   <div class="row ">
-                       <div class="col-3 ">
-                           <h4 style="color: #1c1c1c; font-weight: 700;">Kategori</h4>
-                       </div>
-                       <div class="col-9">
-                           <div class="row">
-                               <div class="col-6">
-                                   <div class="filter__sort">
-                                       <div class="filter__sort">
-                                           <span>Urutkan Berdasarkan</span>
-                                           <select name="sort_by" onchange="this.form.submit()">
-                                               <option value="0" {{ request('sort_by') == '0' ? 'selected' : '' }}>
-                                                   Default</option>
-                                               <option value="price_low_to_high"
-                                                   {{ request('sort_by') == 'price_low_to_high' ? 'selected' : '' }}>
-                                                   Harga: Terendah
-                                               </option>
-                                               <option value="price_high_to_low"
-                                                   {{ request('sort_by') == 'price_high_to_low' ? 'selected' : '' }}>
-                                                   Harga: Tertinggi
-                                               </option>
-                                           </select>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-6 d-flex justify-content-end">
-                                   <div class="filter__found">
-                                       <h6><span>{{ $products->count() }}</span> Produk Ditemukan</h6>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-
-                   {{--  --}}
-                   <div class="row mt-4">
-                       <div class="col-lg-3 col-md-5">
+                   <div class="row">
+                       <div class="d-none d-lg-block col-lg-3"
+                           style="position: sticky; top: 100px; height: calc(100vh - 100px); overflow-y: auto;">
                            <div class="sidebar">
                                <div class="sidebar__item">
-                                   <div class="blog__sidebar__item">
+                                   <h4 style="color: #1c1c1c; font-weight: 700;" class="p-0 mb-3">Kategori</h4>
+                                   <div class="blog__sidebar__item d-flex gap-2 flex-wrap justify-content-between">
                                        <ul>
+                                           <li>
+                                               <a href="{{ route('shop.index', array_merge(request()->query(), ['category_id' => null])) }}"
+                                                   class="{{ request('category_id') == null ? 'text-success' : '' }}">
+                                                   Semua
+                                               </a>
+                                           </li>
                                            @foreach ($categories as $category)
                                                <li>
                                                    <a href="{{ route('shop.index', array_merge(request()->query(), ['category_id' => $category->category_id])) }}"
@@ -102,8 +78,37 @@
                                </div>
                            </div>
                        </div>
-                       <div class="col-lg-9 col-md-7">
+                       <div class="col-12 col-lg-9">
                            <div class="row">
+                               <div class="col-12 col-lg-6">
+                                   <div class="filter__sort d-flex d-lg-block justify-content-between align-items-center">
+                                       <span>Urutkan Berdasarkan</span>
+                                       <select name="sort_by" onchange="this.form.submit()">
+                                           <option value="0" {{ request('sort_by') == '0' ? 'selected' : '' }}>
+                                               Default</option>
+                                           <option value="price_low_to_high"
+                                               {{ request('sort_by') == 'price_low_to_high' ? 'selected' : '' }}>
+                                               Harga: Terendah
+                                           </option>
+                                           <option value="price_high_to_low"
+                                               {{ request('sort_by') == 'price_high_to_low' ? 'selected' : '' }}>
+                                               Harga: Tertinggi
+                                           </option>
+                                       </select>
+                                   </div>
+                               </div>
+                               <div class="d-none col-6 d-md-flex justify-content-end">
+                                   <div class="filter__found">
+                                       <h6><span>{{ $products->count() }}</span> Produk Ditemukan</h6>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="row d-lg-none">
+                               <div class="col-12">
+                                   <hr class="p-0 m-0">
+                               </div>
+                           </div>
+                           <div class="row mt-4 mt-lg-3">
                                @foreach ($products as $product)
                                    <div class="col-lg-4 col-md-6 col-sm-6">
                                        <div class="products-single fix">
