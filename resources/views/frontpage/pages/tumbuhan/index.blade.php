@@ -14,7 +14,6 @@
                                <div class="hero__search__form">
                                    <div class="hero__search__categories">
                                        Semua Kategori
-                                       <span class="arrow_carrot-down"></span>
                                    </div>
                                    <input type="text" name="name" placeholder="Cari tumbuhan berdasarkan nama"
                                        value="{{ request('name') }}">
@@ -33,7 +32,7 @@
            <!-- Hero Section End -->
 
            <!-- Breadcrumb Section Begin -->
-           <section class="breadcrumb-section set-bg" data-setbg="bg.jpeg">
+           <section class="breadcrumb-section set-bg" data-setbg="{{ asset('front/img/breadcrumb.jpeg') }}">
                <div class="container">
                    <div class="row">
                        <div class="col-lg-12 text-center">
@@ -156,8 +155,9 @@
                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                        <div class="blog-box">
                                            <div class="blog-img">
-                                               <img class="img-fluid" src="{{ asset('images/blog-img.jpg') }}"
-                                                   alt="" />
+                                               <img class="img-fluid"
+                                                   src="{{ asset("front/img/tumbuhan/{$item->gambar}") }}"
+                                                   alt="tumbuhan" />
                                            </div>
                                            <div class="blog-content">
                                                <div class="title-blog">
@@ -170,7 +170,7 @@
                                                        {{ $item->nama_latin }}
                                                    </h6>
                                                    <p class="mt-2 text-justify overflow-hidden max-h-20 line-clamp-5">
-                                                       {{ $item->sinonim }}
+                                                       {{ $item->deskripsi }}
                                                    </p>
                                                </div>
                                                <ul class="option-blog">

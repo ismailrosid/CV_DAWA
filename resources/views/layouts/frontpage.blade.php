@@ -39,14 +39,14 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/elegant-icons.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('front/css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('front/css/font-awesome.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('front/css/elegant-icons.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('front/css/nice-select.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('front/css/jquery-ui.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('front/css/slicknav.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('front/css/style.css') }}" type="text/css">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -55,6 +55,20 @@
 
 
     <style>
+        .equal-height {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .equal-height .col-lg-6 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .equal-height .blog__item {
+            flex: 1;
+        }
+
         /*  */
         .navbar-shadow {
             /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
@@ -547,6 +561,22 @@
             line-height: 34px;
         }
 
+        .opt li a {
+            background: #000000;
+            display: inline-block;
+            font-size: 18px;
+            color: #ffffff;
+            width: 34px;
+            height: 34px;
+            text-align: center;
+            line-height: 34px;
+        }
+
+        .opt li a:hover {
+            background: #469712;
+            color: #ffffff;
+        }
+
         .option-blog li a:hover {
             background: #469712;
             color: #ffffff;
@@ -1004,10 +1034,21 @@
             /* menambahkan titik tiga */
         }
 
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            /* batasi menjadi 5 baris */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* menambahkan titik tiga */
+        }
+
         /*  */
 
         .full-screen-bg {
-            background-image: url('{{ asset('bg.jpeg') }}');
+            background-image: url('{{ asset('front/img/beranda_img.jpeg') }}');
             background-size: cover;
             background-position: center;
             min-height: 100vh;
@@ -1426,10 +1467,10 @@
 
     <!-- Js Plugins -->
     <!-- Hapus jQuery Slim dan gunakan jQuery yang lengkap -->
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery-ui.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
 
     <!-- Inisialisasi Tooltip -->
     <script>
@@ -1450,14 +1491,36 @@
     </script>
 
     <!-- Plugins lainnya -->
-    <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
-    <script src="{{ asset('js/mixitup.min.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('front/js/mixitup.min.js') }}"></script>
+    <script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('front/js/main.js') }}"></script>
 
     <script>
         $(document).ready(function() {
+
+            $('.toggle-content').on('click', function(e) {
+                e.preventDefault();
+
+                // Mendapatkan elemen teks yang perlu dikontrol
+                var textElement = $(this).closest('.blog__item__text').find('.clamp-text');
+                var additionalInfo = $(this).closest('.blog__item__text').find('.additional-info');
+
+                // Menyembunyikan atau menampilkan konten tambahan dan menambah/menghapus class 'line-clamp-3' dan 'max-h-20'
+                additionalInfo.toggle();
+
+                if (textElement.hasClass('line-clamp-3')) {
+                    // Jika teks sedang terpotong, hapus 'line-clamp-3' dan 'max-h-20' untuk menampilkan seluruh teks
+                    textElement.removeClass('line-clamp-3 max-h-20');
+                    $(this).text('Tutup');
+                } else {
+                    // Jika teks ditampilkan penuh, tambahkan kembali 'line-clamp-3' dan 'max-h-20' untuk memotong teks
+                    textElement.addClass('line-clamp-3 max-h-20');
+                    $(this).text('Selengkapnya');
+                }
+            });
+
             function checkScroll() {
                 if ($(window).scrollTop() > 50) {
                     $('.header').addClass('navbar-shadow');

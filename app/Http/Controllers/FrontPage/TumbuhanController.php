@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Helpers\TumbuhanHelper; // Tambahkan import TumbuhanHelper
 use App\Models\Tumbuhan; // Tambahkan import TumbuhanHelper
+use App\Models\TumbuhanModel;
 use PDF; // Memanggil alias
 
 class TumbuhanController extends Controller
@@ -26,7 +27,7 @@ class TumbuhanController extends Controller
 
 
         // Ambil data tumbuhan berdasarkan ID
-        $tumbuhan = Tumbuhan::find($id);
+        $tumbuhan = TumbuhanModel::find($id);
 
 
         // Pastikan tumbuhan ditemukan

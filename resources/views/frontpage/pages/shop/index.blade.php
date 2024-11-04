@@ -14,7 +14,7 @@
                                <div class="hero__search__form">
                                    <div class="hero__search__categories">
                                        Semua Kategori
-                                       <span class="arrow_carrot-down"></span>
+
                                    </div>
                                    <input type="text" name="name"
                                        placeholder="Cari produk, misalnya: Tomat, Apel, dll" value="{{ request('name') }}">
@@ -31,14 +31,14 @@
            <!-- Hero Section End -->
 
            <!-- Breadcrumb Section Begin -->
-           <section class="breadcrumb-section set-bg" data-setbg="bg.jpeg">
+           <section class="breadcrumb-section set-bg" data-setbg="{{ asset('front/img/breadcrumb.jpeg') }}">
                <div class="container">
                    <div class="row">
                        <div class="col-lg-12 text-center">
                            <div class="breadcrumb__text">
                                <h2>MediPlants</h2>
                                <div class="breadcrumb__option">
-                                   <a href="{{ route('/') }}">Beranda</a>
+                                   <a href="{{ route('beranda') }}">Beranda</a>
                                    <span>Shop</span>
                                </div>
                            </div>

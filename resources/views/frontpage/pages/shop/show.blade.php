@@ -35,7 +35,7 @@
                        <div class="breadcrumb__text">
                            <h2>MediPlants</h2>
                            <div class="breadcrumb__option">
-                               <a href="{{ route('/') }}">Beranda</a>
+                               <a href="{{ route('beranda') }}">Beranda</a>
                                <a href="{{ route('shop.index') }}">Shop</a>
                                <span>Nobesitas</span>
                            </div>

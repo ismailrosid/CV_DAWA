@@ -18,8 +18,8 @@
                     <i class="text-white fas fa-leaf fs-5"></i>
                 </a>
             </li>
-            <li class="{{ request()->is('herbal') ? 'active' : '' }}">
-                <a href="{{ url('/herbal') }}">
+            <li class="{{ request()->is('informasi') ? 'active' : '' }}">
+                <a href="{{ url('/informasi') }}">
                     <i class="text-white fas fa-info fs-5"></i>
                 </a>
             </li>
@@ -44,13 +44,14 @@
 <header class="header fixed-top">
     <div class="container">
         <div class="row d-flex align-items-center">
-            <div class="col-lg-3">
+            <div class="col-lg-6 px-0 d-flex align-items-center gap-3">
                 <div class="header__logo">
                     <a href="{{ url('/') }}"><img id="logo-img" class="img-fluid"
-                            src="{{ asset('img/logo.png') }}" alt="" /></a>
+                            src="{{ asset('front/img/logo.png') }}" alt="" /></a>
                 </div>
+                <p class="p-0 m-0">Jam oprasional 09.00 – 14.00</p>
             </div>
-            <div class="col-lg-9 d-flex justify-content-end">
+            <div class="col-lg-6 d-flex justify-content-end">
                 <nav class="header__menu">
                     <ul>
                         <li class=" {{ request()->is('/') ? 'active' : '' }}">
@@ -71,9 +72,9 @@
                                 <i class="p-0 m-0 text-white fas fa-leaf fs-5"></i>
                             </a>
                         </li>
-                        <li class="{{ request()->is('herbal') ? 'active' : '' }}">
+                        <li class="{{ request()->is('informasi') ? 'active' : '' }}">
                             <a style="display: inline-flex; justify-content: center; align-items: center;"
-                                href="{{ url('/herbal') }}">
+                                href="{{ url('/informasi') }}">
                                 <i class="p-0 m-0 text-white fas fa-info fs-5"></i>
                             </a>
                         </li>

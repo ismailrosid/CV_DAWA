@@ -69,11 +69,19 @@
 
                        <p style="font-weight: bold;" class="p-0 m-0 text-dark mb-2">Bersama untuk Kesehatan yang Lebih Baik
                        </p>
-                       <p class="text-justify" style="text-indent: 2em;">
+                       <p class="text-justify mb-3" style="text-indent: 2em;">
                            Mari kita bersama-sama menciptakan lingkungan kesehatan yang lebih baik dengan produk herbal yang
                            berkualitas.
                            Hubungi kami hari ini untuk mengetahui lebih lanjut tentang peluang kemitraan yang menarik ini!
                        </p>
+                       <hr class="p-0 m-0 my-4">
+                       <div class="d-flex justify-content-end mt-5 align-items-center">
+                           <div class="text-center border border-2 p-4 rounded-lg">
+                               <h5 style="font-weight: bold" class="text-dark">Surat Penawaran</h5>
+                               <p class="p-0 m-0 text-dark mt-2">Download</p>
+                           </div>
+                       </div>
+
                    </div>
                </div>
            </div>
