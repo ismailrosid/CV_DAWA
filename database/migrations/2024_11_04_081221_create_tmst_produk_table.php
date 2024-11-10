@@ -26,6 +26,9 @@ return new class extends Migration
             $table->text('tidak_disarankan')->nullable(); // Tidak disarankan untuk
             $table->text('tidak_dikonsumsi_bersama_obat')->nullable(); // Tidak dikonsumsi bersama obat
             $table->text('komposisi')->nullable(); // Komposisi
+            $table->string('netto')->nullable(); // Gambar produk
+            $table->string('satuan')->nullable();
+            $table->string('jml_halaman')->nullable(); // Gambar produk
             $table->text('anjuran_pemakaian')->nullable(); // Anjuran pemakaian
             $table->unsignedBigInteger('id_kategori'); // Foreign Key
             $table->timestamps(); // Menyimpan waktu dibuat dan diupdate

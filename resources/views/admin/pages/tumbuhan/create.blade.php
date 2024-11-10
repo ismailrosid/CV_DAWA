@@ -30,8 +30,8 @@
                                     <label for="gambar">GAMBAR</label>
                                     <div class="input-group">
                                         <div class="custom-file" id="gambar-container">
-                                            <input type="file" class="custom-file-input" id="gambar" name="gambar">
-                                            <label class="custom-file-label" for="gambar">Masukan gambar</label>
+                                            <input type="file" class="form-control form-control-sm" id="gambar"
+                                                name="gambar" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>

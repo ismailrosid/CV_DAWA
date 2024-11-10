@@ -28,8 +28,8 @@ class ProdukController extends Controller
 
         // Menggabungkan data tidak disarankan, tidak dikonsumsi bersama obat, komposisi, dan anjuran pemakaian menjadi string
         $tidak_disarankan = implode('|||', $request->input('tidak_disarankan', []));
-        $tidak_dikonsumsi_bersama_obat = implode('|||', $request->input('tidak_dikonsumsi_bersama_obat', []));
-        $komposisi = implode('|||', $request->input('komposisi', []));
+        // $tidak_dikonsumsi_bersama_obat = implode('|||', $request->input('tidak_dikonsumsi_bersama_obat', []));
+        $komposisi = implode('|||', array_filter($request->input('komposisi', [])));
         $anjuran_pemakaian = implode('|||', $request->input('anjuran_pemakaian', []));
 
         // Simpan data ke database
@@ -39,8 +39,11 @@ class ProdukController extends Controller
         $produk->harga = floatval($request->harga);
         $produk->deskripsi = $request->deskripsi;
         $produk->tidak_disarankan = $tidak_disarankan; // Simpan sebagai string
-        $produk->tidak_dikonsumsi_bersama_obat = $tidak_dikonsumsi_bersama_obat; // Simpan sebagai string
+        $produk->tidak_dikonsumsi_bersama_obat = $request->tidak_dikonsumsi_bersama_obat; // Simpan sebagai string
         $produk->komposisi = $komposisi; // Simpan sebagai string
+        $produk->netto = $request->netto;
+        $produk->satuan = $request->satuan;
+        $produk->jml_halaman = $request->jml_halaman;
         $produk->anjuran_pemakaian = $anjuran_pemakaian; // Simpan sebagai string
 
         // Menyimpan gambar
@@ -63,13 +66,13 @@ class ProdukController extends Controller
         $kategori = TmstKategoriProdukModel::all(); // Mengambil semua data kategori
         // Mengonversi data yang digabungkan kembali menjadi array
         $produk->tidak_disarankan = explode('|||', $produk->tidak_disarankan);
-        $produk->tidak_dikonsumsi_bersama_obat = explode('|||', $produk->tidak_dikonsumsi_bersama_obat);
-        // $produk->komposisi = explode('|||', $produk->komposisi);
+        $input = $produk->komposisi;
+        $produk->komposisi = explode('|||', $produk->komposisi);
         $produk->anjuran_pemakaian = explode('|||', $produk->anjuran_pemakaian);
 
 
         // Pisahkan berdasarkan "+++" untuk memproses data
-        $groups = explode("+++", $produk->komposisi);
+        $groups = explode("+++", $input);
 
         $result = [];
         $currentKey = null;
@@ -94,9 +97,6 @@ class ProdukController extends Controller
             }
         }
 
-      
-
-
 
 
         return view('admin.pages.produk.edit', compact('produk', 'kategori', 'result'));
@@ -109,8 +109,8 @@ class ProdukController extends Controller
 
         // Menggabungkan data tidak disarankan, tidak dikonsumsi bersama obat, komposisi, dan anjuran pemakaian menjadi string
         $tidak_disarankan = implode('|||', $request->input('tidak_disarankan', []));
-        $tidak_dikonsumsi_bersama_obat = implode('|||', $request->input('tidak_dikonsumsi_bersama_obat', []));
-        $komposisi = implode('|||', $request->input('komposisi', []));
+
+        $komposisi = implode('|||', array_filter($request->input('komposisi', [])));
         $anjuran_pemakaian = implode('|||', $request->input('anjuran_pemakaian', []));
 
         // Temukan produk berdasarkan ID
@@ -120,8 +120,11 @@ class ProdukController extends Controller
         $produk->harga = floatval($request->harga);
         $produk->deskripsi = $request->deskripsi;
         $produk->tidak_disarankan = $tidak_disarankan;
-        $produk->tidak_dikonsumsi_bersama_obat = $tidak_dikonsumsi_bersama_obat;
+        $produk->tidak_dikonsumsi_bersama_obat = $request->tidak_dikonsumsi_bersama_obat; // Simpan sebagai string
         $produk->komposisi = $komposisi;
+        $produk->netto = $request->netto;
+        $produk->satuan = $request->satuan;
+        $produk->jml_halaman = $request->jml_halaman;
         $produk->anjuran_pemakaian = $anjuran_pemakaian;
 
         // Menyimpan gambar jika diunggah
@@ -165,7 +168,7 @@ class ProdukController extends Controller
     {
         // Query dasar untuk mengambil data produk dengan relasi kategori
         $query = TmstProdukModel::with('kategori') // Mengaitkan model TmstKategoriProdukModel
-            ->select('id', 'nama', 'deskripsi', 'id_kategori'); // Menambahkan kolom id_kategori
+            ->select('tmst_produk.id', 'tmst_produk.nama', 'tmst_produk.deskripsi', 'tmst_produk.id_kategori'); // Menentukan alias untuk kolom
 
         return datatables()->of($query)
             ->editColumn('kategori', function ($produk) {
@@ -176,6 +179,12 @@ class ProdukController extends Controller
                 $query->whereHas('kategori', function ($q) use ($keyword) {
                     $q->where('nama', 'LIKE', "%{$keyword}%");
                 });
+            })
+            ->orderColumn('kategori', function ($query, $order) {
+                // Mengatur pengurutan berdasarkan nama kategori
+                $query->leftJoin('tmst_kategori_produk', 'tmst_produk.id_kategori', '=', 'tmst_kategori_produk.id')
+                    ->orderBy('tmst_kategori_produk.nama', $order) // Menentukan pengurutan berdasarkan nama kategori
+                    ->select('tmst_produk.id', 'tmst_produk.nama', 'tmst_produk.deskripsi', 'tmst_produk.id_kategori', 'tmst_kategori_produk.nama as kategori_nama'); // Menambahkan kolom kategori_nama sebagai alias
             })
             ->make(true); // Mengembalikan data dalam format JSON
     }

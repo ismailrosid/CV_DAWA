@@ -4,7 +4,7 @@
 
    @section('content')
 
-       <form action="{{ route('shop.index') }}" method="GET">
+       <form id="shopForm" action="{{ route('shop.index') }}" method="GET">
            <!-- Hero Section Begin -->
            <section style="margin-top: 80px;" class="hero hero-normal">
                <div class="container">
@@ -60,16 +60,16 @@
                                    <div class="blog__sidebar__item d-flex gap-2 flex-wrap justify-content-between">
                                        <ul>
                                            <li>
-                                               <a href="{{ route('shop.index', array_merge(request()->query(), ['category_id' => null])) }}"
-                                                   class="{{ request('category_id') == null ? 'text-success' : '' }}">
+                                               <a href="{{ route('shop.index', array_merge(request()->query(), ['id_kategori' => null])) }}"
+                                                   class="{{ request('id_kategori') == null ? 'text-success' : '' }}">
                                                    Semua
                                                </a>
                                            </li>
-                                           @foreach ($categories as $category)
+                                           @foreach ($kategori as $kategori)
                                                <li>
-                                                   <a href="{{ route('shop.index', array_merge(request()->query(), ['category_id' => $category->category_id])) }}"
-                                                       class="{{ request('category_id') == $category->id ? 'text-success' : '' }}">
-                                                       {{ $category->nama }}
+                                                   <a href="{{ route('shop.index', array_merge(request()->query(), ['id_kategori' => $kategori->id])) }}"
+                                                       class="{{ request('id_kategori') == $kategori->id ? 'text-success' : '' }}">
+                                                       {{ $kategori->nama }}
                                                    </a>
                                                </li>
                                            @endforeach
@@ -119,8 +119,8 @@
                                                <div class="mask-icon">
                                                    <ul>
                                                        <li style="font-size: 0.8rem">
-                                                           <a href="" data-toggle="tooltip" data-placement="right"
-                                                               title="Detail">
+                                                           <a href="{{ route('shop.produk.show', ['id' => $product->id]) }}"
+                                                               data-toggle="tooltip" data-placement="right" title="Detail">
                                                                <i class="fas fa-eye"></i>
                                                            </a>
                                                        </li>
@@ -163,8 +163,8 @@
            </section>
            <!-- Product Section End -->
            <!-- Tambahkan hidden input untuk category_id -->
-           @if (request('category_id'))
-               <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+           @if (request('id_kategori'))
+               <input type="hidden" name="id_kategori" value="{{ request('id_kategori') }}">
            @endif
        </form>
    @endsection

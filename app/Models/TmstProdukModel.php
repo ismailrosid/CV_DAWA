@@ -19,6 +19,9 @@ class TmstProdukModel extends Model
         'tidak_disarankan', // Kolom baru
         'tidak_dikonsumsi_bersama_obat', // Kolom baru
         'komposisi', // Kolom baru
+        'netto', // Kolom baru
+        'satuan', // Kolom baru
+        'jml_halaman', // Kolom baru
         'anjuran_pemakaian', // Kolom baru
         'id_kategori'
     ];

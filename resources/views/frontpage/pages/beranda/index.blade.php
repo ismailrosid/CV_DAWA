@@ -21,8 +21,8 @@
                                 <i class="fas fa-search"></i>
                             </span>
                         </div>
-                        <input type="text" class="pl-0 form-control search-input" placeholder="Search"
-                            aria-label="Search" aria-describedby="" onfocus="this.style.boxShadow='none'">
+                        <input autocomplete="off" type="text" class="pl-0 form-control search-input" placeholder="Search"
+                            onfocus="this.style.boxShadow='none'">
                     </div>
                 </div>
                 <article class="d-flex justify-content-center w-100 mt-2">

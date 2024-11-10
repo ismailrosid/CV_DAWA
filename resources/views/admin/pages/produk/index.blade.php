@@ -54,13 +54,15 @@
                             <table id="example1" class="table table-sm table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th style="width: 7%"
+                                        <th style="width: 8%"
                                             class="border-left-0 border-top-0 border-bottom-0 text-center">NO</th>
-                                        <th style="width: 25%" class="border-left-0 border-top-0 border-bottom-0">NAMA
+                                        <th style="width: 25%"
+                                            class="border-left-0 border-top-0 border-bottom-0 text-center">NAMA
                                             PRODUK</th>
-                                        <th style="width: 20%" class="border-left-0 border-top-0 border-bottom-0">KATEGORI
+                                        <th style="width: 20%"
+                                            class="border-left-0 border-top-0 border-bottom-0 text-center">KATEGORI
                                         </th>
-                                        <th class="border-left-0 border-top-0 border-bottom-0">DESKRIPSI</th>
+                                        <th class="border-left-0 border-top-0 border-bottom-0 text-center">DESKRIPSI</th>
                                         <th style="width: 10%"
                                             class="border-left-0 border-top-0 border-bottom-0 text-center">AKSI</th>
                                     </tr>
@@ -102,6 +104,7 @@
                 "pageLength": 100,
                 "processing": true,
                 "serverSide": true,
+                "ordering": false,
                 "ajax": {
                     "url": "{{ route('admin.produk.data') }}",
                     "type": "GET"
@@ -127,9 +130,34 @@
                     },
                     {
                         "data": "kategori",
-                        createdCell: function(td) {
-                            $(td).addClass("vertical-align-middle");
-                        },
+                        createdCell: function(td, cellData, rowData, rowIndex, colIndex) {
+                            $(td).addClass("vertical-align-middle text-center");
+
+                            // Menentukan warna badge berdasarkan kategori
+                            let badgeClass = '';
+
+                            switch (cellData) {
+                                case 'Herbal':
+                                    badgeClass = 'bg-success'; // Hijau untuk Herbal
+                                    break;
+                                case 'Lemon Tea':
+                                    badgeClass = 'bg-warning'; // Kuning untuk Lemon Tea
+                                    break;
+                                case 'Madu':
+                                    badgeClass = 'bg-danger'; // Coklat untuk Madu
+                                    break;
+                                case 'Buku':
+                                    badgeClass = 'bg-secondary'; // Abu-abu untuk Buku
+                                    break;
+                                default:
+                                    badgeClass =
+                                        'bg-light'; // Default light gray untuk kategori lain
+                                    break;
+                            }
+
+                            // Membuat elemen badge dan menyematkannya ke dalam sel
+                            $(td).html(`<span class="badge ${badgeClass}">${cellData}</span>`);
+                        }
                     },
                     {
                         "data": "deskripsi",

@@ -270,9 +270,9 @@
                         if ($(this).val().trim() === '') {
                             isValid = false;
                             $(this).addClass('is-invalid');
-                            $(this).after(
-                                '<div class="invalid-feedback">Nama herbal tidak boleh kosong.</div>'
-                            );
+                            // $(this).after(
+                            //     '<div class="invalid-feedback">Nama herbal tidak boleh kosong.</div>'
+                            // );
                         }
                     });
 
@@ -281,8 +281,8 @@
                         if ($(this).val().trim() === '') {
                             isValid = false;
                             $(this).addClass('is-invalid');
-                            $(this).after(
-                                '<div class="invalid-feedback">Manfaat tidak boleh kosong.</div>');
+                            // $(this).after(
+                            //     '<div class="invalid-feedback">Manfaat tidak boleh kosong.</div>');
                         }
                     });
 
@@ -291,9 +291,9 @@
                         if ($(this).val().trim() === '') {
                             isValid = false;
                             $(this).addClass('is-invalid');
-                            $(this).after(
-                                '<div class="invalid-feedback">Deskripsi herbal tidak boleh kosong.</div>'
-                            );
+                            // $(this).after(
+                            //     '<div class="invalid-feedback">Deskripsi herbal tidak boleh kosong.</div>'
+                            // );
                         }
                     });
 
@@ -302,9 +302,9 @@
                         if ($(this).val().trim() === '') {
                             isValid = false;
                             $(this).addClass('is-invalid');
-                            $(this).after(
-                                '<div class="invalid-feedback">Cara Kerja tidak boleh kosong.</div>'
-                            );
+                            // $(this).after(
+                            //     '<div class="invalid-feedback">Cara Kerja tidak boleh kosong.</div>'
+                            // );
                         }
                     });
 
@@ -313,9 +313,9 @@
                         if ($(this).val().trim() === '') {
                             isValid = false;
                             $(this).addClass('is-invalid');
-                            $(this).after(
-                                '<div class="invalid-feedback">Cara Konsumsi tidak boleh kosong.</div>'
-                            );
+                            // $(this).after(
+                            //     '<div class="invalid-feedback">Cara Konsumsi tidak boleh kosong.</div>'
+                            // );
                         }
                     });
 

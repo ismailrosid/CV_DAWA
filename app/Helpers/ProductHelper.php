@@ -13,20 +13,20 @@ class ProductHelper
 
         // Filter berdasarkan nama produk (jika ada input 'name' di request)
         if ($request->has('name') && !empty($request->name)) {
-            $query->where('product_name', 'like', '%' . $request->name . '%');
+            $query->where('nama', 'like', '%' . $request->name . '%');
         }
 
-        // Filter berdasarkan kategori (jika ada input 'category_id' di request)
-        if ($request->has('category_id') && !empty($request->category_id)) {
-            $query->where('category_id', $request->category_id);
+        // Filter berdasarkan kategori (jika ada input 'id_kategori' di request)
+        if ($request->has('id_kategori') && !empty($request->id_kategori)) {
+            $query->where('id_kategori', $request->id_kategori);
         }
 
         // Sorting berdasarkan pilihan pengguna
         if ($request->has('sort_by')) {
             if ($request->sort_by == 'price_low_to_high') {
-                $query->orderBy('price', 'asc');
+                $query->orderBy('harga', 'asc');
             } elseif ($request->sort_by == 'price_high_to_low') {
-                $query->orderBy('price', 'desc');
+                $query->orderBy('harga', 'desc');
             }
         }
 
