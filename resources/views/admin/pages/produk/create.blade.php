@@ -155,7 +155,7 @@
                                                                     placeholder="Masukkan detail komposisi"
                                                                     spellcheck="false" autocomplete="off">
                                                                 <div class="input-group-append">
-                                                                    <button class="btn btn-danger remove-detail-komposisi"
+                                                                    <button class="btn btn-danger remove-detail-komposisi "
                                                                         type="button">
                                                                         <i class="fas fa-minus"></i>
                                                                     </button>
@@ -171,7 +171,8 @@
                                                     </div>
                                                 </td>
                                                 <td class="text-center vertical-align-middle">
-                                                    <button class="btn btn-sm text-danger" type="button">
+                                                    <button class="btn btn-sm text-danger remove-komposisi-row"
+                                                        type="button">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
                                                 </td>
@@ -303,7 +304,12 @@
                     let selectedCategory = $(this).find(':selected').text().toLowerCase();
 
                     // Sembunyikan semua elemen terlebih dahulu
-                    $('.input-for-herbal, .input-for-lemon-tea').addClass('d-none');
+
+                    // Sembunyikan semua elemen terlebih dahulu dan bersihkan nilai inputnya
+                    $('.input-for-herbal, .input-for-lemon-tea, .input-for-madu, .input-for-buku')
+                        .addClass('d-none')
+                        .find('input, textarea, select')
+                        .val(''); // Bersihkan nilai input
 
                     // Gunakan setTimeout untuk delay sebelum menampilkan form sesuai kategori
                     setTimeout(function() {
@@ -414,12 +420,9 @@
                         });
                     } else {
                         Swal.fire({
-                            position: 'top-end',
                             icon: 'error',
                             title: 'Oops...',
-                            text: 'Minimal satu baris komposisi harus ada!',
-                            timer: 1500,
-                            showConfirmButton: false
+                            text: 'Minimal satu inputan komposisi harus ada!'
                         });
                     }
                 });

@@ -51,17 +51,12 @@
                                 <!-- Select Kategori Section -->
                                 <div class="mb-2">
                                     <label for="id_kategori" class="form-label">KATEGORI:</label>
-                                    <select class="form-control form-control-sm" id="id_kategori" name="id_kategori">
-                                        <option value="">---------------------Pilih Kategori---------------------
-                                        </option>
-                                        @foreach ($kategori as $item)
-                                            <option value="{{ $item->id }}"
-                                                {{ $item->id == $produk->id_kategori ? 'selected' : '' }}>
-                                                {{ $item->nama }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" class="form-control form-control-sm" id="id_kategori"
+                                        name="" value="{{ $produk->kategori->nama }}" readonly>
+                                    <input type="hidden" name="id_kategori" value="{{ $produk->id_kategori }}">
                                 </div>
                                 <hr>
+
 
                                 <div class="mb-2">
                                     <label class="form-label" for="nama_produk">NAMA PRODUK:</label>
@@ -182,7 +177,8 @@
                                                             </div>
                                                         </td>
                                                         <td class="text-center vertical-align-middle">
-                                                            <button class="btn btn-sm text-danger" type="button">
+                                                            <button class="btn btn-sm text-danger remove-komposisi-row"
+                                                                type="button">
                                                                 <i class="fas fa-minus"></i>
                                                             </button>
                                                         </td>
@@ -313,45 +309,6 @@
     <script>
         $(document).ready(function() {
 
-            $('#id_kategori').change(function() {
-                // Tampilkan SweetAlert Loading
-                // Tampilkan SweetAlert Loading
-                Swal.fire({
-                    title: "Loading....",
-                    html: '<div class="spinner-border text-primary"></div>',
-                    showConfirmButton: false,
-                    allowOutsideClick: false,
-                    allowEscapeKey: false,
-                });
-
-                // Ambil kategori yang dipilih
-                let selectedCategory = $(this).find(':selected').text().toLowerCase();
-
-                // Sembunyikan semua elemen terlebih dahulu
-                $('.input-for-herbal, .input-for-lemon-tea').addClass('d-none');
-
-                // Gunakan setTimeout untuk delay sebelum menampilkan form sesuai kategori
-                setTimeout(function() {
-                    // Tampilkan elemen sesuai kategori yang dipilih
-                    if (selectedCategory.includes('herbal')) {
-                        $('.input-for-herbal').removeClass('d-none');
-                    }
-                    if (selectedCategory.includes('lemon tea')) {
-                        $('.input-for-lemon-tea').removeClass('d-none');
-                    }
-                    if (selectedCategory.includes('madu')) {
-                        $('.input-for-madu').removeClass('d-none');
-                    }
-                    if (selectedCategory.includes('buku')) {
-                        $('.input-for-buku').removeClass('d-none');
-                    }
-                    // Tutup SweetAlert Loading setelah form ditampilkan
-                    Swal.close();
-                }, 1000); // Delay selama 1 detik (1000ms)
-            });
-
-            // Sembunyikan form tambahan di awal
-
             // Add new tidak disarankan input
             $('#add-tidak-disarankan').click(function() {
                 const newInput = $(`        
@@ -458,6 +415,7 @@
             });
 
             // Fungsi untuk menghapus baris komposisi
+            // Fungsi untuk menghapus baris komposisi
             $(document).on('click', '.remove-komposisi-row', function() {
                 if ($('#komposisi-body tr').length > 1) {
                     $(this).closest('tr').fadeOut(300, function() {
@@ -467,12 +425,9 @@
                     });
                 } else {
                     Swal.fire({
-                        position: 'top-end',
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Minimal satu baris komposisi harus ada!',
-                        timer: 1500,
-                        showConfirmButton: false
+                        text: 'Minimal satu inputan komposisi harus ada!'
                     });
                 }
             });
