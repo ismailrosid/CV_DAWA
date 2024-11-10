@@ -55,6 +55,10 @@
 
 
     <style>
+        .first-paragraph {
+            text-indent: 2.5rem;
+        }
+
         .equal-height {
             display: flex;
             flex-wrap: wrap;

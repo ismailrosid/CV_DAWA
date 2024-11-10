@@ -15,7 +15,9 @@ use App\Http\Controllers\FrontPage\FathnershipController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\TumbuhanController as AdminTumbuhanController;
-use App\Http\Controllers\Admin\InformasiController as AdminInformasiController;
+use App\Http\Controllers\Admin\ArtikelController;
+use App\Http\Controllers\Admin\TipsHerbalController;
+use App\Http\Controllers\Admin\AuthController;
 
 /*
 |----------------------------------------------------------------------
@@ -40,7 +42,7 @@ Route::get('tentang-kami', [AboutController::class, 'index'])->name('tentang_kam
 // Kelompokkan rute untuk Shop
 Route::prefix('shop')->name('shop.')->group(function () {
     Route::get('/', [FrontShopController::class, 'index'])->name('index');
-    Route::get('product/{id}', [FrontShopController::class, 'show'])->name('product.show');
+    Route::get('produk/{id}', [FrontShopController::class, 'show'])->name('produk.show');
 });
 
 // Kelompokkan rute untuk Tumbuhan
@@ -51,7 +53,11 @@ Route::prefix('tumbuhan')->name('tumbuhan.')->group(function () {
 });
 
 // Herbal
-Route::get('informasi', [FrontInformasiController::class, 'index'])->name('informasi');
+Route::prefix('informasi')->name('informasi.')->group(function () {
+    Route::get('/', [FrontInformasiController::class, 'index'])->name('index');
+    Route::get('{id}', [FrontInformasiController::class, 'show'])->name('show');
+});
+
 
 // Fathnership
 Route::get('fathnership', [FathnershipController::class, 'index'])->name('fathnership');
@@ -62,44 +68,59 @@ Route::get('fathnership', [FathnershipController::class, 'index'])->name('fathne
 // Grouping routes untuk Admin
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    // Dashboard
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Route untuk halaman login
+    Route::get('login', [AuthController::class, 'index'])->name('login');
+    Route::post('login', [AuthController::class, 'auth'])->name('login.auth');
 
-    // CRUD untuk Shop
-    Route::prefix('produk')->name('produk.')->group(function () {
-        Route::get('/', [ProdukController::class, 'index'])->name('index');
-        Route::get('create', [ProdukController::class, 'create'])->name('create');
-        Route::post('/', [ProdukController::class, 'store'])->name('store');
-        // Route::get('{id}', [ProdukController::class, 'show'])->name('show');
-        Route::get('edit/{id}', [ProdukController::class, 'edit'])->name('edit');
-        Route::put('{id}', [ProdukController::class, 'update'])->name('update');
-        Route::delete('{id}', [ProdukController::class, 'destroy'])->name('destroy');
+    // Route untuk logout
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-        Route::get('data', [ProdukController::class, 'getData'])->name('data');
-    });
+    // Halaman Dashboard dan CRUD hanya dapat diakses oleh yang sudah login
+    Route::middleware('auth')->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // CRUD untuk Tumbuhan
-    Route::prefix('tumbuhan')->name('tumbuhan.')->group(function () {
-        Route::get('/', [AdminTumbuhanController::class, 'index'])->name('index');
-        Route::get('create', [AdminTumbuhanController::class, 'create'])->name('create');
-        Route::post('/', [AdminTumbuhanController::class, 'store'])->name('store');
-        // Route::get('{id}', [AdminTumbuhanController::class, 'show'])->name('show');
-        Route::get('edit/{id}', [AdminTumbuhanController::class, 'edit'])->name('edit');
-        Route::put('{id}', [AdminTumbuhanController::class, 'update'])->name('update');
-        Route::delete('{id}', [AdminTumbuhanController::class, 'destroy'])->name('destroy');
+        // CRUD untuk Shop
+        Route::prefix('produk')->name('produk.')->group(function () {
+            Route::get('/', [ProdukController::class, 'index'])->name('index');
+            Route::get('create', [ProdukController::class, 'create'])->name('create');
+            Route::post('/', [ProdukController::class, 'store'])->name('store');
+            Route::get('edit/{id}', [ProdukController::class, 'edit'])->name('edit');
+            Route::put('{id}', [ProdukController::class, 'update'])->name('update');
+            Route::delete('{id}', [ProdukController::class, 'destroy'])->name('destroy');
+            Route::get('data', [ProdukController::class, 'getData'])->name('data');
+        });
 
-        // / Rute untuk mengambil data tumbuhan
-        Route::get('data', [AdminTumbuhanController::class, 'getData'])->name('data'); // Tambahan rute ini
-    });
+        // CRUD untuk Tumbuhan
+        Route::prefix('tumbuhan')->name('tumbuhan.')->group(function () {
+            Route::get('/', [AdminTumbuhanController::class, 'index'])->name('index');
+            Route::get('create', [AdminTumbuhanController::class, 'create'])->name('create');
+            Route::post('/', [AdminTumbuhanController::class, 'store'])->name('store');
+            Route::get('edit/{id}', [AdminTumbuhanController::class, 'edit'])->name('edit');
+            Route::put('{id}', [AdminTumbuhanController::class, 'update'])->name('update');
+            Route::delete('{id}', [AdminTumbuhanController::class, 'destroy'])->name('destroy');
+            Route::get('data', [AdminTumbuhanController::class, 'getData'])->name('data');
+        });
 
-    // CRUD untuk Informasi
-    Route::prefix('informasi')->name('informasi.')->group(function () {
-        Route::get('/', [AdminInformasiController::class, 'index'])->name('index');
-        Route::get('create', [AdminInformasiController::class, 'create'])->name('create');
-        Route::post('/', [AdminInformasiController::class, 'store'])->name('store');
-        Route::get('{id}', [AdminInformasiController::class, 'show'])->name('show');
-        Route::get('{id}/edit', [AdminInformasiController::class, 'edit'])->name('edit');
-        Route::put('{id}', [AdminInformasiController::class, 'update'])->name('update');
-        Route::delete('{id}', [AdminInformasiController::class, 'destroy'])->name('destroy');
+        // CRUD untuk Artikel
+        Route::prefix('artikel')->name('artikel.')->group(function () {
+            Route::get('/', [ArtikelController::class, 'index'])->name('index');
+            Route::get('create', [ArtikelController::class, 'create'])->name('create');
+            Route::post('/', [ArtikelController::class, 'store'])->name('store');
+            Route::get('edit/{id}', [ArtikelController::class, 'edit'])->name('edit');
+            Route::put('{id}', [ArtikelController::class, 'update'])->name('update');
+            Route::delete('{id}', [ArtikelController::class, 'destroy'])->name('destroy');
+            Route::get('data', [ArtikelController::class, 'getData'])->name('data');
+        });
+
+        // CRUD untuk Tips Herbal
+        Route::prefix('tips-herbal')->name('tips-herbal.')->group(function () {
+            Route::get('/', [TipsHerbalController::class, 'index'])->name('index');
+            Route::get('create', [TipsHerbalController::class, 'create'])->name('create');
+            Route::post('/', [TipsHerbalController::class, 'store'])->name('store');
+            Route::get('edit/{id}', [TipsHerbalController::class, 'edit'])->name('edit');
+            Route::put('{id}', [TipsHerbalController::class, 'update'])->name('update');
+            Route::delete('{id}', [TipsHerbalController::class, 'destroy'])->name('destroy');
+            Route::get('data', [TipsHerbalController::class, 'getData'])->name('data');
+        });
     });
 });

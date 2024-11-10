@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Helpers\TumbuhanHelper; // Tambahkan import TumbuhanHelper
 use App\Models\Tumbuhan; // Tambahkan import TumbuhanHelper
-use App\Models\TumbuhanModel;
+use App\Models\TmstTumbuhanModel;
 use PDF; // Memanggil alias
 
 class TumbuhanController extends Controller
@@ -27,40 +27,7 @@ class TumbuhanController extends Controller
 
 
         // Ambil data tumbuhan berdasarkan ID
-        $tumbuhan = TumbuhanModel::find($id);
-
-
-        // Pastikan tumbuhan ditemukan
-        if (!$tumbuhan) {
-            abort(404); // atau bisa kembalikan respons lain
-        }
-
-        // // 
-
-        // // 
-        // // // Data untuk view
-        $data = [
-            'title' => $tumbuhan->nama_tumbuhan,
-            'nama_latin' => $tumbuhan->nama_latin,
-            'sinonim' => $tumbuhan->sinonim,
-            'nama_daerah' => $tumbuhan->nama_daerah,
-            'klasifikasi' => [
-                'kerajaan' => $tumbuhan->kerajaan,
-                'sub_kerajaan' => $tumbuhan->sub_kerajaan,
-                'super_divisi' => $tumbuhan->super_divisi,
-                'divisi' => $tumbuhan->divisi,
-                'kelas' => $tumbuhan->kelas,
-                'sub_kelas' => $tumbuhan->sub_kelas,
-                'ordo' => $tumbuhan->ordo,
-                'famili' => $tumbuhan->famili,
-                'genus' => $tumbuhan->genus,
-                'spesies' => $tumbuhan->spesies,
-            ],
-            'deskripsi' => $tumbuhan->deskripsi,
-            'bagian_yg_digunakan' => $tumbuhan->bagian_yg_digunakan,
-            'konstituen' => $tumbuhan->konstituen,
-            'indikasi' => $tumbuhan->indikasi,
-        ];
+        $data = TmstTumbuhanModel::find($id);
 
         // Gunakan helper untuk memfilter data tumbuhan
         // $tumbuhan = TumbuhanHelper::filterTumbuhan($request);
@@ -72,8 +39,8 @@ class TumbuhanController extends Controller
         // return $pdf->stream('DETAIl_TUMBUHAN.pdf');
     }
 
-    public function daf_pus()
-    {
-        return view('frontpage.pages.tumbuhan.daftar_pustaka');
-    }
+    // public function daf_pus()
+    // {
+    //     return view('frontpage.pages.tumbuhan.daftar_pustaka');
+    // }
 }

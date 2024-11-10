@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-light-success elevation-4">
+<aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <!-- Uncomment if you want to display a logo or branding information -->
     <!--
@@ -73,13 +73,42 @@
 
 
                 <!-- Informasi -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('admin.informasi.index') }}"
-                        class="nav-link {{ request()->is('admin/informasi') ? 'active' : '' }}">
+                        class="nav-link {{ request()->is('admin/informasi') || request()->is('admin/informasi/create') || request()->is('admin/informasi/*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-info-circle"></i>
                         <p>Informasi</p>
                     </a>
+                </li> --}}
+
+                <li
+                    class="nav-item {{ request()->is('admin/artikel*') || request()->is('admin/tips-herbal*') ? 'menu-open' : '' }}">
+                    <a href="#"
+                        class="nav-link {{ request()->is('admin/artikel*') || request()->is('admin/tips-herbal*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-info-circle"></i>
+                        <p>
+                            Informasi
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.artikel.index') }}"
+                                class="nav-link {{ request()->is('admin/artikel') || request()->is('admin/artikel/create') || request()->is('admin/artikel/*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Artikel</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.tips-herbal.index') }}"
+                                class="nav-link {{ request()->is('admin/tips-herbal') || request()->is('admin/tips-herbal/create') || request()->is('admin/tips-herbal/*') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tips Herbal</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

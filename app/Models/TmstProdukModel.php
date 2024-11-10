@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProdukModel extends Model
+class TmstProdukModel extends Model
 {
     use HasFactory;
 
@@ -26,6 +26,6 @@ class ProdukModel extends Model
     // Relasi ke model KategoriModel
     public function kategori()
     {
-        return $this->belongsTo(KategoriProdukModel::class, 'id_kategori', 'id');
+        return $this->belongsTo(TmstKategoriProdukModel::class, 'id_kategori', 'id');
     }
 }

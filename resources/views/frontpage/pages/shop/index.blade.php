@@ -68,8 +68,8 @@
                                            @foreach ($categories as $category)
                                                <li>
                                                    <a href="{{ route('shop.index', array_merge(request()->query(), ['category_id' => $category->category_id])) }}"
-                                                       class="{{ request('category_id') == $category->category_id ? 'text-success' : '' }}">
-                                                       {{ $category->category_name }}
+                                                       class="{{ request('category_id') == $category->id ? 'text-success' : '' }}">
+                                                       {{ $category->nama }}
                                                    </a>
                                                </li>
                                            @endforeach
@@ -114,13 +114,13 @@
                                        <div class="products-single fix">
                                            <div class="box-img-hover">
                                                {{-- Gambar Produk --}}
-                                               <img src="{{ $product->image_url ?? 'images/img-pro-02.jpg' }}"
+                                               <img src="{{ asset('front/img/produk/' . $product->gambar) }}"
                                                    class="img-fluid" alt="{{ $product->product_name }}">
                                                <div class="mask-icon">
                                                    <ul>
                                                        <li style="font-size: 0.8rem">
-                                                           <a href="{{ route('product.Show', ['id' => $product->product_id]) }}"
-                                                               data-toggle="tooltip" data-placement="right" title="Detail">
+                                                           <a href="" data-toggle="tooltip" data-placement="right"
+                                                               title="Detail">
                                                                <i class="fas fa-eye"></i>
                                                            </a>
                                                        </li>
@@ -131,13 +131,15 @@
                                            <div class="text-center why-text">
                                                {{-- Nama Produk --}}
                                                <h3 class="p-0 m-0">
-                                                   <a href="#">{{ $product->product_name }}</a>
+                                                   <a href="#">{{ $product->nama }}</a>
                                                </h3>
                                                <div class="d-flex">
                                                    <div class="pricing">
                                                        {{-- Harga Produk --}}
                                                        <p class="price p-0 m-0">
-                                                           <span class="price-sale">Rp50.000 </span>
+                                                           <span class="price-sale">Rp.
+                                                               {{ number_format($product->harga, 0, ',', '.') }}</span>
+
                                                        </p>
                                                    </div>
                                                </div>

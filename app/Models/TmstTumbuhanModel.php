@@ -39,7 +39,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class TumbuhanModel extends Model
+class TmstTumbuhanModel extends Model
 {
     use HasFactory;
 

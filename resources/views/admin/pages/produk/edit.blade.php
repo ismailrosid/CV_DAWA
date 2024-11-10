@@ -5,6 +5,10 @@
         .card-footer {
             border-top: 1px solid #dee2e6;
         }
+
+        .vertical-align-middle {
+            vertical-align: middle !important;
+        }
     </style>
 @endpush
 
@@ -13,7 +17,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-outline card-success">
+                    <div class="card card-outline card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Edit Data Tumbuhan</h3>
                             <div class="card-tools">
@@ -62,16 +66,16 @@
                                 <div class="mb-2">
                                     <label class="form-label" for="nama_produk">NAMA PRODUK:</label>
                                     <input type="text" class="form-control form-control-sm" id="nama_produk"
-                                        name="nama_produk" value="{{ $produk->nama }}" placeholder="Masukan nama produk"
-                                        autocomplete="off">
+                                        name="nama_produk" value="{{ $produk->nama }}" spellcheck="false" autocomplete="off"
+                                        placeholder="Masukan nama produk" autocomplete="off">
                                 </div>
                                 <hr>
 
                                 <div class="mb-2">
                                     <label class="form-label" for="harga">HARGA:</label>
                                     <input type="text" class="form-control form-control-sm only-number" id="harga"
-                                        name="harga" value="{{ intval($produk->harga) }}"
-                                        placeholder="Masukan harga produk" autocomplete="off">
+                                        name="harga" value="{{ intval($produk->harga) }}" spellcheck="false"
+                                        autocomplete="off" placeholder="Masukan harga produk" autocomplete="off">
 
 
                                 </div>
@@ -80,8 +84,8 @@
                                 <!-- Deskripsi Section -->
                                 <div class="mb-2">
                                     <label for="deskripsi" class="form-label">DESKRIPSI:</label>
-                                    <textarea class="form-control form-control-sm" id="deskripsi" name="deskripsi" rows="3"
-                                        placeholder="Masukkan deskripsi produk...">{{ $produk->deskripsi }}</textarea>
+                                    <textarea class="form-control form-control-sm" id="deskripsi" name="deskripsi" rows="3" spellcheck="false"
+                                        autocomplete="off" placeholder="Masukkan deskripsi produk...">{{ $produk->deskripsi }}</textarea>
                                 </div>
                                 <hr>
 
@@ -92,7 +96,7 @@
                                         @foreach ($produk->tidak_disarankan as $item)
                                             <div class="input-group input-group-sm mb-1">
                                                 <input type="text" class="form-control" name="tidak_disarankan[]"
-                                                    value="{{ $item }}"
+                                                    value="{{ $item }}" spellcheck="false" autocomplete="off"
                                                     placeholder="Masukan tidak disarankan untuk">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-danger remove-tidak-disarankan" type="button">
@@ -119,7 +123,8 @@
                                             <div class="input-group input-group-sm mb-1">
                                                 <input type="text" class="form-control"
                                                     name="tidak_dikonsumsi_bersama_obat[]" value="{{ $item }}"
-                                                    placeholder="Masukan tidak dikonsumsi bersama obat">
+                                                    spellcheck="false" autocomplete="off placeholder="Masukan tidak
+                                                    dikonsumsi bersama obat">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-danger remove-tidak-dikonsumsi-bersama-obat"
                                                         type="button">
@@ -137,31 +142,78 @@
                                     </div>
                                 </div>
                                 <hr>
-
                                 <!-- Komposisi -->
-                                <div class="mb-2">
-                                    <label for="komposisi" class="form-label">KOMPOSISI:</label>
-                                    <div id="komposisi-container">
-                                        @foreach ($produk->komposisi as $item)
-                                            <div class="input-group input-group-sm mb-1">
-                                                <input type="text" class="form-control" name="komposisi[]"
-                                                    value="{{ $item }}" placeholder="Masukan komposisi">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-danger remove-komposisi" type="button">
-                                                        <i class="fas fa-minus"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
+                                <label for="klasifikasi" class="form-label">KOMPOSISI:</label>
+                                <table class="table table-sm table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td class="border-top-0 border-bottom-0 text-center" style="width: 5%">No</td>
+                                            <td class="border-top-0 border-bottom-0 text-center" style="width: 50%">
+                                                Takaran</td>
+                                            <td class="border-top-0 border-bottom-0 text-center">Detail Komposisi</td>
+                                            <td class="border-top-0 border-bottom-0 text-center" style="width: 5%">Aksi
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="komposisi-body">
+                                        @foreach ($result as $item)
+                                            @foreach ($item as $key => $value)
+                                                {{-- $key adalah kunci dinamis seperti 'test', dan $value adalah array nilai --}}
+                                                <tr>
+                                                    <td class="text-center vertical-align-middle">
+                                                        {{ $loop->parent->iteration }}</td>
+                                                    <td class="text-center p-3 vertical-align-middle">
+                                                        <textarea class="form-control form-control-sm" id="takaran" name="komposisi[]" rows="3"
+                                                            placeholder="Masukkan takaran komposisi..." spellcheck="false" autocomplete="off">{{ $key }}</textarea>
+                                                    </td>
+                                                    <td class="text-center vertical-align-middle p-3">
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="detail-komposisi-container w-100">
+                                                                @foreach ($value as $detail)
+                                                                    {{-- $value adalah array yang berisi nilai seperti [1, 2, 3] --}}
+                                                                    <div class="input-group input-group-sm w-100 mb-1">
+                                                                        <input type="text" class="form-control"
+                                                                            name="komposisi[]"
+                                                                            placeholder="Masukkan detail komposisi"
+                                                                            value="{{ $detail }}"
+                                                                            spellcheck="false" autocomplete="off">
+                                                                        <div class="input-group-append">
+                                                                            <button
+                                                                                class="btn btn-danger remove-detail-komposisi"
+                                                                                type="button">
+                                                                                <i class="fas fa-minus"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                            <div class="ml-2">
+                                                                <button
+                                                                    class="btn btn-sm btn-primary add-detail-komposisi mb-1"
+                                                                    type="button">
+                                                                    <i class="fas fa-plus"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center vertical-align-middle">
+                                                        <button class="btn btn-sm text-danger" type="button">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         @endforeach
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <button class="btn btn-sm btn-primary" id="add-komposisi" type="button">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </div>
+                                    </tbody>
+
+                                </table>
+
+                                <div class="d-flex justify-content-end mt-1">
+                                    <button id="add-komposisi-row" class="btn btn-sm btn-primary" type="button">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
                                 </div>
                                 <hr>
-
                                 <!-- Anjuran Pemakaian -->
                                 <div class="mb-2">
                                     <label for="anjuran_pemakaian" class="form-label">ANJURAN PEMAKAIAN:</label>
@@ -169,7 +221,8 @@
                                         @foreach ($produk->anjuran_pemakaian as $item)
                                             <div class="input-group input-group-sm mb-1">
                                                 <input type="text" class="form-control" name="anjuran_pemakaian[]"
-                                                    value="{{ $item }}" placeholder="Masukan anjuran pemakaian">
+                                                    value="{{ $item }}" spellcheck="false" autocomplete="off"
+                                                    placeholder="Masukan anjuran pemakaian">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-danger remove-anjuran-pemakaian"
                                                         type="button">
@@ -215,7 +268,7 @@
             $('#add-tidak-disarankan').click(function() {
                 const newInput = $(`        
                     <div class="input-group input-group-sm mb-1">
-                        <input type="text" class="form-control" name="tidak_disarankan[]" placeholder="Masukan tidak disarankan untuk" required>
+                        <input type="text" class="form-control" name="tidak_disarankan[]" spellcheck="false" autocomplete="off placeholder="Masukan tidak disarankan untuk" required>
                         <div class="input-group-append">
                             <button class="btn btn-danger remove-tidak-disarankan" type="button">
                                 <i class="fas fa-minus"></i>
@@ -245,7 +298,7 @@
             $('#add-tidak-dikonsumsi-bersama-obat').click(function() {
                 const newInput = $(`        
                     <div class="input-group input-group-sm mb-1">
-                        <input type="text" class="form-control" name="tidak_dikonsumsi_bersama_obat[]" placeholder="Masukan tidak dikonsumsi bersama obat" required>
+                        <input type="text" class="form-control" name="tidak_dikonsumsi_bersama_obat[]" spellcheck="false" autocomplete="off placeholder="Masukan tidak dikonsumsi bersama obat" required>
                         <div class="input-group-append">
                             <button class="btn btn-danger remove-tidak-dikonsumsi-bersama-obat" type="button">
                                 <i class="fas fa-minus"></i>
@@ -275,7 +328,7 @@
             $('#add-komposisi').click(function() {
                 const newInput = $(`        
                     <div class="input-group input-group-sm mb-1">
-                        <input type="text" class="form-control" name="komposisi[]" placeholder="Masukan komposisi" required>
+                        <input type="text" class="form-control" name="komposisi[]" spellcheck="false" autocomplete="off placeholder="Masukan komposisi" required>
                         <div class="input-group-append">
                             <button class="btn btn-danger remove-komposisi" type="button">
                                 <i class="fas fa-minus"></i>
@@ -305,7 +358,7 @@
             $('#add-anjuran-pemakaian').click(function() {
                 const newInput = $(`        
                     <div class="input-group input-group-sm mb-1">
-                        <input type="text" class="form-control" name="anjuran_pemakaian[]" placeholder="Masukan anjuran pemakaian" required>
+                        <input type="text" class="form-control" name="anjuran_pemakaian[]" spellcheck="false" autocomplete="off placeholder="Masukan anjuran pemakaian" required>
                         <div class="input-group-append">
                             <button class="btn btn-danger remove-anjuran-pemakaian" type="button">
                                 <i class="fas fa-minus"></i>
@@ -340,7 +393,7 @@
 
                 // Menghapus pesan kesalahan dan kelas invalid sebelumnya
                 $('.is-invalid').removeClass('is-invalid');
-                $('.invalid-feedback').remove(); // Menghapus semua pesan kesalahan sebelumnya
+                $('.invalid-feedback').remove(); // Menghapus semua pesan kesalahan sebelumnya         
 
                 // Validasi "gambar" (input file)
                 if ($('#gambar').val() !== '') {
@@ -369,7 +422,6 @@
                         );
                     }
                 }
-
 
                 // Validasi kategori
                 if ($('#id_kategori').val() === '') {
@@ -433,29 +485,38 @@
                     }
                 });
 
-                // Validasi untuk "komposisi"
-                $('input[name="komposisi[]"]').each(function() {
-                    if ($(this).val().trim() === '') {
-                        isValid = false;
-                        $(this).addClass('is-invalid');
-                        $(this).closest('.input-group')
-                            .find('.input-group-append')
-                            .after(
-                                '<div class="invalid-feedback">Field ini tidak boleh kosong.</div>'
-                            );
-                    }
-                });
 
                 // Validasi untuk "anjuran pemakaian"
                 $('input[name="anjuran_pemakaian[]"]').each(function() {
                     if ($(this).val().trim() === '') {
                         isValid = false;
                         $(this).addClass('is-invalid');
-                        $(this).closest('.input-group')
-                            .find('.input-group-append')
-                            .after(
-                                '<div class="invalid-feedback">Field ini tidak boleh kosong.</div>'
-                            );
+                        // $(this).closest('.input-group')
+                        //     .find('.input-group-append')
+                        //     .after(
+                        //         '<div class="invalid-feedback">Field ini tidak boleh kosong.</div>'
+                        //     );
+                    }
+                });
+
+                $('textarea[name="komposisi[]"]').each(function() {
+                    if ($(this).val().trim() === '') {
+                        isValid = false;
+                        $(this).addClass('is-invalid');
+                        //     $(this).after(
+                        //         '<div class="invalid-feedback">Takaran komposisi tidak boleh kosong.</div>'
+                        //     );
+                    }
+                });
+
+                // Validasi Detail Komposisi (input[name="komposisi[]"])
+                $('input[name="komposisi[]"]').each(function() {
+                    if ($(this).val().trim() === '') {
+                        isValid = false;
+                        $(this).addClass('is-invalid');
+                        // $(this).after(
+                        //     '<div class="invalid-feedback">Detail komposisi tidak boleh kosong.</div>'
+                        // );
                     }
                 });
 
@@ -468,9 +529,23 @@
                         allowOutsideClick: false,
                         allowEscapeKey: false,
                     });
+                    // Menambahkan karakter tambahan di setiap textarea 'komposisi[]'
+                    $("textarea[name='komposisi[]']").each(function() {
+                        let currentText = $(this).val(); // Ambil teks yang ada di textarea
+                        if (currentText && !currentText.startsWith(
+                                '+++')) { // Cek apakah belum ada '+++' di awal
+                            currentText = '+++' + currentText; // Tambahkan '+++' di awal teks
+                        }
+                        if (!currentText.endsWith('+++')) { // Cek apakah belum ada '+++' di akhir
+                            currentText += '+++'; // Tambahkan '+++' di akhir teks
+                        }
+                        $(this).val(currentText); // Set kembali teks dengan '+++' di awal dan akhir
+                    });
+
 
                     // Delay simulasi loading (hanya untuk contoh, hapus jika tidak perlu)
                     setTimeout(function() {
+
                         $('form').submit(); // Submit form setelah loading
                     }, 2000); // Ganti 2000 dengan waktu loading yang diinginkan
                 } else {
@@ -505,6 +580,19 @@
                 const fileName = $(this).val().split('\\').pop();
                 // Menampilkan nama file pada label
                 $(this).next('.custom-file-label').text(fileName);
+            });
+
+            $('textarea').on('paste', function(e) {
+                const textarea = $(this);
+                e.preventDefault();
+
+                // Mendapatkan teks yang di-paste dan membersihkan format tambahan
+                let clipboardData = (e.originalEvent || e).clipboardData.getData('text/plain');
+                clipboardData = clipboardData.replace(/\s+/g, ' ')
+                    .trim(); // Menghapus spasi dan baris berlebih
+
+                // Masukkan teks bersih ke dalam textarea
+                textarea.val(clipboardData);
             });
         });
     </script>

@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-outline card-success">
+                    <div class="card card-outline card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Tambah Data Tumbuhan</h3>
                             <div class="card-tools">
@@ -39,13 +39,15 @@
                                 <div class="mb-2">
                                     <label class="form-label" for="nama_tumbuhan">NAMA TUMBUHAN:</label>
                                     <input type="text" class="form-control form-control-sm" id="nama_tumbuhan"
-                                        name="nama_tumbuhan" placeholder="Masukan nama tumbuhan" autocomplete="off">
+                                        name="nama_tumbuhan" placeholder="Masukan nama tumbuhan" spellcheck="false"
+                                        autocomplete="off">
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label class="form-label" for="nama_latin">NAMA LATIN:</label>
                                     <input type="text" class="form-control form-control-sm" id="nama_latin"
-                                        name="nama_latin" placeholder="Masukan nama latin" autocomplete="off">
+                                        name="nama_latin" placeholder="Masukan nama latin" spellcheck="false"
+                                        autocomplete="off">
                                 </div>
                                 <hr>
                                 <!-- Sinonim Section -->
@@ -54,7 +56,7 @@
                                     <div id="sinonim-container">
                                         <div class="input-group input-group-sm mb-1">
                                             <input type="text" class="form-control" name="sinonims[]"
-                                                placeholder="Masukan sinonim">
+                                                placeholder="Masukan sinonim" spellcheck="false" autocomplete="off">
                                             <div class="input-group-append">
                                                 <button class="btn btn-danger remove-sinonim" type="button">
                                                     <i class="fas fa-minus"></i>
@@ -73,7 +75,7 @@
                                 <div class="mb-2">
                                     <label for="nama_daerah" class="form-label">NAMA DAERAH:</label>
                                     <textarea class="form-control form-control-sm" id="nama_daerah" name="nama_daerah" rows="3"
-                                        placeholder="Masukkan nama daerah..."></textarea>
+                                        placeholder="Masukkan nama daerah..." spellcheck="false" autocomplete="off"></textarea>
                                 </div>
                                 <hr>
                                 <!-- Klasifikasi Section -->
@@ -83,105 +85,115 @@
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="kerajaan"
                                             class="form-label">KERJAAN:</label>
                                         <input type="text" class="form-control form-control-sm" id="kerajaan"
-                                            name="kerajaan" placeholder="Masukan Kerajaan">
+                                            name="kerajaan" placeholder="Masukan Kerajaan" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="sub_kerajaan"
                                             class="form-label">SUB KERAJAAN:</label>
                                         <input type="text" class="form-control form-control-sm" id="sub_kerajaan"
-                                            name="sub_kerajaan" placeholder="Masukan Sub Kerajaan">
+                                            name="sub_kerajaan" placeholder="Masukan Sub Kerajaan" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="super_divisi"
                                             class="form-label">SUPER DIVISI:</label>
                                         <input type="text" class="form-control form-control-sm" id="super_divisi"
-                                            name="super_divisi" placeholder="Masukan Super Divisi">
+                                            name="super_divisi" placeholder="Masukan Super Divisi" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="divisi"
                                             class="form-label">DIVISI:</label>
                                         <input type="text" class="form-control form-control-sm" id="divisi"
-                                            name="divisi" placeholder="Masukan Divisi">
+                                            name="divisi" placeholder="Masukan Divisi" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="kelas"
                                             class="form-label">KELAS:</label>
                                         <input type="text" class="form-control form-control-sm" id="kelas"
-                                            name="kelas" placeholder="Masukan Kelas">
+                                            name="kelas" placeholder="Masukan Kelas" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="sub_kelas"
                                             class="form-label">SUB KELAS:</label>
                                         <input type="text" class="form-control form-control-sm" id="sub_kelas"
-                                            name="sub_kelas" placeholder="Masukan Sub Kelas">
+                                            name="sub_kelas" placeholder="Masukan Sub Kelas" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="ordo"
                                             class="form-label">ORDO:</label>
                                         <input type="text" class="form-control form-control-sm" id="ordo"
-                                            name="ordo" placeholder="Masukan Ordo">
+                                            name="ordo" placeholder="Masukan Ordo" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="famili"
                                             class="form-label">FAMILI:</label>
                                         <input type="text" class="form-control form-control-sm" id="famili"
-                                            name="famili" placeholder="Masukan Famili">
+                                            name="famili" placeholder="Masukan Famili" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="genus"
                                             class="form-label">GENUS:</label>
                                         <input type="text" class="form-control form-control-sm" id="genus"
-                                            name="genus" placeholder="Masukan Genus">
+                                            name="genus" placeholder="Masukan Genus" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="spesies"
                                             class="form-label">SPESIES:</label>
                                         <input type="text" class="form-control form-control-sm" id="spesies"
-                                            name="spesies" placeholder="Masukan Spesies">
+                                            name="spesies" placeholder="Masukan Spesies" spellcheck="false"
+                                            autocomplete="off">
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="deskripsi" class="form-label">DESKRIPSI:</label>
                                     <textarea class="form-control form-control-sm" id="deskripsi" name="deskripsi" rows="5"
-                                        placeholder="Masukkan deskripsi di sini..."></textarea>
+                                        placeholder="Masukkan deskripsi di sini..." spellcheck="false" autocomplete="off"></textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="bagian_yang_digunakan" class="form-label">BAGIAN YANG DIGUNAKAN:</label>
                                     <textarea class="form-control form-control-sm" id="bagian_yang_digunakan" name="bagian_yang_digunakan"
-                                        rows="3" placeholder="Masukkan bagian yang digunakan..."></textarea>
+                                        rows="3" placeholder="Masukkan bagian yang digunakan..." spellcheck="false" autocomplete="off"></textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="konstituen" class="form-label">KONSTITUEN:</label>
                                     <textarea class="form-control form-control-sm" id="konstituen" name="konstituen" rows="3"
-                                        placeholder="Masukkan konstituen..."></textarea>
+                                        placeholder="Masukkan konstituen..." spellcheck="false" autocomplete="off"></textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="indikasi" class="form-label">INDIKASI:</label>
                                     <textarea class="form-control form-control-sm" id="indikasi" name="indikasi" rows="3"
-                                        placeholder="Masukkan indikasi..."></textarea>
+                                        placeholder="Masukkan indikasi..." spellcheck="false" autocomplete="off"></textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="penggunaan_tradisional" class="form-label">PENGGUNAAN TRADISIONAL:</label>
                                     <textarea class="form-control form-control-sm" id="penggunaan_tradisional" name="penggunaan_tradisional"
-                                        rows="3" placeholder="Masukkan penggunaan tradisional..."></textarea>
+                                        rows="3" placeholder="Masukkan penggunaan tradisional..." spellcheck="false" autocomplete="off"></textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="dosis_harian" class="form-label">DOSIS HARIAN:</label>
                                     <textarea class="form-control form-control-sm" id="dosis_harian" name="dosis_harian" rows="3"
-                                        placeholder="Masukkan dosis harian..."></textarea>
+                                        placeholder="Masukkan dosis harian..." spellcheck="false" autocomplete="off"></textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="kontraindikasi" class="form-label">KONTRAINDIKASI, INTERAKSI, DAN EFEK
                                         SAMPING:</label>
                                     <textarea class="form-control form-control-sm" id="kontraindikasi" name="kontraindikasi" rows="3"
-                                        placeholder="Masukkan kontraindikasi, interaksi, dan efek samping..."></textarea>
+                                        placeholder="Masukkan kontraindikasi, interaksi, dan efek samping..." spellcheck="false" autocomplete="off"></textarea>
                                 </div>
                                 <!-- Daftar Pustaka Section -->
                                 <div class="mb-2">
@@ -189,7 +201,8 @@
                                     <div id="daftar-pustaka-container">
                                         <div class="input-group input-group-sm mb-1">
                                             <input type="text" class="form-control" name="daftar_pustaka[]"
-                                                placeholder="Masukan daftar pustaka">
+                                                placeholder="Masukan daftar pustaka" spellcheck="false"
+                                                autocomplete="off">
                                             <div class="input-group-append">
                                                 <button class="btn btn-danger remove-daftar-pustaka" type="button">
                                                     <i class="fas fa-minus"></i>
@@ -210,7 +223,8 @@
                                     <div id="sumber-internet-container">
                                         <div class="input-group input-group-sm mb-1">
                                             <input type="text" class="form-control" name="sumber_internet[]"
-                                                placeholder="Masukan sumber internet">
+                                                placeholder="Masukan sumber internet" spellcheck="false"
+                                                autocomplete="off">
                                             <div class="input-group-append">
                                                 <button class="btn btn-danger remove-sumber-internet" type="button">
                                                     <i class="fas fa-minus"></i>
@@ -231,7 +245,8 @@
                                     <div id="link-gambar-container">
                                         <div class="input-group input-group-sm mb-1">
                                             <input type="text" class="form-control" name="link_gambar[]"
-                                                accept="image/*" placeholder="Masukan link gambar">
+                                                accept="image/*" placeholder="Masukan link gambar" spellcheck="false"
+                                                autocomplete="off">
                                             <div class="input-group-append">
                                                 <button class="btn btn-danger remove-link-gambar" type="button">
                                                     <i class="fas fa-minus"></i>
@@ -272,11 +287,75 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
+
+            $('input[type="text"], textarea').keydown(function(e) {
+                if (e.ctrlKey && e.key === 'i') {
+                    e.preventDefault(); // Menghindari aksi default Ctrl + I
+
+                    var element = $(this);
+                    var startPos = this.selectionStart;
+                    var endPos = this.selectionEnd;
+                    var selectedText = element.val().substring(startPos, endPos);
+
+                    // Menambahkan atau menghapus tag <i> pada teks yang dipilih
+                    if (selectedText) {
+                        if (selectedText.startsWith('<i>') && selectedText.endsWith('</i>')) {
+                            // Jika teks yang dipilih sudah dalam format italic, hapus tag <i>
+                            element.val(element.val().substring(0, startPos) + selectedText.slice(3, -4) +
+                                element.val().substring(endPos));
+                        } else {
+                            // Tambahkan tag <i> di sekitar teks yang dipilih
+                            element.val(element.val().substring(0, startPos) + '<i>' + selectedText +
+                                '</i>' + element.val().substring(endPos));
+                        }
+                    } else {
+                        // Jika tidak ada teks yang dipilih, tambahkan tag <i> di posisi kursor
+                        element.val(element.val().substring(0, startPos) + '<i>' + element.val().substring(
+                            startPos) + '</i>');
+                    }
+
+                    // Mengatur kembali posisi kursor setelah perubahan
+                    this.selectionStart = startPos;
+                    this.selectionEnd = startPos;
+                }
+
+                if (e.ctrlKey && e.key === 'b') {
+                    e.preventDefault(); // Menghindari aksi default Ctrl + B
+
+                    var element = $(this);
+                    var startPos = this.selectionStart;
+                    var endPos = this.selectionEnd;
+                    var selectedText = element.val().substring(startPos, endPos);
+
+                    // Menambahkan atau menghapus tag <b> pada teks yang dipilih
+                    if (selectedText) {
+                        if (selectedText.startsWith('<b>') && selectedText.endsWith('</b>')) {
+                            // Jika teks yang dipilih sudah dalam format bold, hapus tag <b>
+                            element.val(element.val().substring(0, startPos) + selectedText.slice(3, -4) +
+                                element.val().substring(endPos));
+                        } else {
+                            // Tambahkan tag <b> di sekitar teks yang dipilih
+                            element.val(element.val().substring(0, startPos) + '<b>' + selectedText +
+                                '</b>' + element.val().substring(endPos));
+                        }
+                    } else {
+                        // Jika tidak ada teks yang dipilih, tambahkan tag <b> di posisi kursor
+                        element.val(element.val().substring(0, startPos) + '<b>' + element.val().substring(
+                            startPos) + '</b>');
+                    }
+
+                    // Mengatur kembali posisi kursor setelah perubahan
+                    this.selectionStart = startPos;
+                    this.selectionEnd = startPos;
+                }
+            });
+
+
             // Add new synonym input
             $('#add-sinonim').click(function() {
                 const newInput = $(`
         <div class="input-group input-group-sm mb-1">
-            <input type="text" class="form-control form-control-sm" name="sinonims[]" placeholder="Masukan sinonim">
+            <input type="text" class="form-control form-control-sm" name="sinonims[]" placeholder="Masukan sinonim" spellcheck="false" autocomplete="off">
             <div class="input-group-append">
                 <button class="btn btn-danger remove-sinonim" type="button">
                     <i class="fas fa-minus"></i>
@@ -306,7 +385,7 @@
             $('#add-daftar-pustaka').click(function() {
                 const newInput = $(`
         <div class="input-group input-group-sm mb-1">
-            <input type="text" class="form-control" name="daftar_pustaka[]" placeholder="Masukan daftar pustaka">
+            <input type="text" class="form-control" name="daftar_pustaka[]" placeholder="Masukan daftar pustaka" spellcheck="false" autocomplete="off">
             <div class="input-group-append">
                 <button class="btn btn-danger remove-daftar-pustaka" type="button">
                     <i class="fas fa-minus"></i>
@@ -336,7 +415,7 @@
             $('#add-sumber-internet').click(function() {
                 const newInput = $(`
         <div class="input-group input-group-sm mb-1">
-            <input type="text" class="form-control" name="sumber_internet[]" placeholder="Masukan sumber internet">
+            <input type="text" class="form-control" name="sumber_internet[]" placeholder="Masukan sumber internet"  spellcheck="false" autocomplete="off">
             <div class="input-group-append">
                 <button class="btn btn-danger remove-sumber-internet" type="button">
                     <i class="fas fa-minus"></i>
@@ -366,7 +445,7 @@
             $('#add-link-gambar').click(function() {
                 const newInput = $(`
         <div class="input-group input-group-sm mb-1">
-            <input type="text" class="form-control" name="link-gambar[]" placeholder="Masukan link gambar">
+            <input type="text" class="form-control" name="link-gambar[]" placeholder="Masukan link gambar" spellcheck="false" autocomplete="off">
             <div class="input-group-append">
                 <button class="btn btn-danger remove-link-gambar" type="button">
                     <i class="fas fa-minus"></i>
@@ -404,7 +483,6 @@
                 $('.is-invalid').removeClass('is-invalid');
                 $('.invalid-feedback').remove(); // Menghapus semua pesan kesalahan sebelumnya
 
-                // Validasi "gambar" (input file)
                 if ($('#gambar').val() === '') {
                     isValid = false;
                     $('#gambar-container').addClass('is-invalid'); // Tambah kelas is-invalid di container
@@ -413,6 +491,7 @@
                         '<div class="invalid-feedback">Gambar tidak boleh kosong.</div>'
                     );
                 } else {
+
                     // Mendapatkan file dari input
                     const file = $('#gambar').get(0).files[0];
                     const fileSizeLimit = 2 * 1024 * 1024; // Maksimal ukuran file (2 MB)
@@ -439,84 +518,176 @@
                     }
                 }
 
-                // Validasi nama produk
-                if ($('#nama_produk').val().trim() === '') {
+                // Validasi nama tumbuhan
+                if ($('#nama_tumbuhan').val() === '') {
                     isValid = false;
-                    $('#nama_produk').addClass('is-invalid');
-                    $('#nama_produk').after(
-                        '<div class="invalid-feedback">Nama produk tidak boleh kosong.</div>'
+                    $('#nama_tumbuhan').addClass('is-invalid');
+                    $('#nama_tumbuhan').after(
+                        '<div class="invalid-feedback">Nama Tumbuhan tidak boleh kosong.</div>');
+                }
+
+                // Validasi nama latin
+                if ($('#nama_latin').val() === '') {
+                    isValid = false;
+                    $('#nama_latin').addClass('is-invalid');
+                    $('#nama_latin').after(
+                        '<div class="invalid-feedback">Nama Latin tidak boleh kosong.</div>');
+                }
+
+
+                // // Validasi input sinonim
+                $('input[name="sinonims[]"]').each(function(index) {
+                    if ($(this).val() === '') {
+                        isValid = false;
+                        $(this).addClass('is-invalid');
+                        $(this).closest('.input-group')
+                            .find('.input-group-append') // Menemukan elemen input-group-append
+                            .after(
+                                '<div class="invalid-feedback">Sinonim tidak boleh kosong.</div>'
+                            ); // Menambahkan pesan kesalahan setelah input-group-append
+                    }
+                });
+
+                // Validasi nama daerah
+                if ($('#nama_daerah').val() === '') {
+                    isValid = false;
+                    $('#nama_daerah').addClass('is-invalid');
+                    $('#nama_daerah').after(
+                        '<div class="invalid-feedback">Nama Daerah tidak boleh kosong.</div>'
                     );
                 }
 
-                // Validasi harga
-                if ($('#harga').val().trim() === '') {
-                    isValid = false;
-                    $('#harga').addClass('is-invalid');
-                    $('#harga').after(
-                        '<div class="invalid-feedback">Harga tidak boleh kosong.</div>'
-                    );
-                }
+                // Validasi klasifikasi
+                const klasifikasiFields = [{
+                        selector: '#kerajaan',
+                        message: 'Kerajaan tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#sub_kerajaan',
+                        message: 'Sub Kerajaan tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#super_divisi',
+                        message: 'Super Divisi tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#divisi',
+                        message: 'Divisi tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#kelas',
+                        message: 'Kelas tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#sub_kelas',
+                        message: 'Sub Kelas tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#ordo',
+                        message: 'Ordo tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#famili',
+                        message: 'Famili tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#genus',
+                        message: 'Genus tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#spesies',
+                        message: 'Spesies tidak boleh kosong.'
+                    }
+                ];
 
-                // Validasi deskripsi
-                if ($('#deskripsi').val().trim() === '') {
-                    isValid = false;
-                    $('#deskripsi').addClass('is-invalid');
-                    $('#deskripsi').after(
-                        '<div class="invalid-feedback">Deskripsi tidak boleh kosong.</div>'
-                    );
-                }
-
-                // Validasi untuk "tidak disarankan"
-                $('input[name="tidak_disarankan[]"]').each(function() {
-                    if ($(this).val().trim() === '') {
+                klasifikasiFields.forEach(function(field) {
+                    if ($(field.selector).val() === '') {
                         isValid = false;
-                        $(this).addClass('is-invalid');
-                        $(this).closest('.input-group')
-                            .find('.input-group-append')
-                            .after(
-                                '<div class="invalid-feedback">Field ini tidak boleh kosong.</div>'
-                            );
+                        $(field.selector).addClass('is-invalid');
+                        $(field.selector).after('<div class="invalid-feedback">' + field.message +
+                            '</div>');
                     }
                 });
 
-                // Validasi untuk "tidak dikonsumsi bersama obat"
-                $('input[name="tidak_dikonsumsi_bersama_obat[]"]').each(function() {
-                    if ($(this).val().trim() === '') {
+                // Validasi deskripsi dan bagian yang digunakan
+                const textareaFields = [{
+                        selector: '#deskripsi',
+                        message: 'Deskripsi tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#bagian_yang_digunakan',
+                        message: 'Bagian yang digunakan tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#konstituen',
+                        message: 'Konstituen tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#indikasi',
+                        message: 'Indikasi tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#penggunaan_tradisional',
+                        message: 'Penggunaan tradisional tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#dosis_harian',
+                        message: 'Dosis harian tidak boleh kosong.'
+                    },
+                    {
+                        selector: '#kontraindikasi',
+                        message: 'Kontraindikasi tidak boleh kosong.'
+                    }
+                ];
+
+                textareaFields.forEach(function(field) {
+                    if ($(field.selector).val() === '') {
                         isValid = false;
-                        $(this).addClass('is-invalid');
-                        $(this).closest('.input-group')
-                            .find('.input-group-append')
-                            .after(
-                                '<div class="invalid-feedback">Field ini tidak boleh kosong.</div>'
-                            );
+                        $(field.selector).addClass('is-invalid');
+                        $(field.selector).after('<div class="invalid-feedback">' + field.message +
+                            '</div>');
                     }
                 });
 
-                // Validasi untuk "komposisi"
-                $('input[name="komposisi[]"]').each(function() {
-                    if ($(this).val().trim() === '') {
+                // Validasi daftar pustaka
+                $('input[name="daftar_pustaka[]"]').each(function() {
+                    if ($(this).val() === '') {
                         isValid = false;
                         $(this).addClass('is-invalid');
-                        $(this).closest('.input-group')
-                            .find('.input-group-append')
+                        $(this).closest('.input-group') // Mengambil elemen input-group terdekat
+                            .find('.input-group-append') // Menemukan elemen input-group-append
                             .after(
-                                '<div class="invalid-feedback">Field ini tidak boleh kosong.</div>'
-                            );
+                                '<div class="invalid-feedback">Daftar pustaka tidak boleh kosong.</div>'
+                            ); // Menambahkan pesan kesalahan setelah input-group-append
                     }
                 });
 
-                // Validasi untuk "anjuran pemakaian"
-                $('input[name="anjuran_pemakaian[]"]').each(function() {
-                    if ($(this).val().trim() === '') {
+                // Validasi sumber internet
+                $('input[name="sumber_internet[]"]').each(function() {
+                    if ($(this).val() === '') {
                         isValid = false;
                         $(this).addClass('is-invalid');
-                        $(this).closest('.input-group')
-                            .find('.input-group-append')
+                        $(this).closest('.input-group') // Mengambil elemen input-group terdekat
+                            .find('.input-group-append') // Menemukan elemen input-group-append
                             .after(
-                                '<div class="invalid-feedback">Field ini tidak boleh kosong.</div>'
-                            );
+                                '<div class="invalid-feedback">Sumber internet tidak boleh kosong.</div>'
+                            ); // Menambahkan pesan kesalahan setelah input-group-append
                     }
                 });
+
+                // Validasi link gambar
+                $('input[name="link_gambar[]"]').each(function() {
+                    if ($(this).val() === '') {
+                        isValid = false;
+                        $(this).addClass('is-invalid');
+                        $(this).closest('.input-group') // Mengambil elemen input-group terdekat
+                            .find('.input-group-append') // Menemukan elemen input-group-append
+                            .after(
+                                '<div class="invalid-feedback">Link gambar tidak boleh kosong.</div>'
+                            ); // Menambahkan pesan kesalahan setelah input-group-append
+                    }
+                });
+
 
                 // Jika tidak valid, tidak submit form
                 if (isValid) {
@@ -554,6 +725,19 @@
                 $(this).next('.custom-file-label').text(fileName);
             });
 
+
+            $('textarea').on('paste', function(e) {
+                const textarea = $(this);
+                e.preventDefault();
+
+                // Mendapatkan teks yang di-paste dan membersihkan format tambahan
+                let clipboardData = (e.originalEvent || e).clipboardData.getData('text/plain');
+                clipboardData = clipboardData.replace(/\s+/g, ' ')
+                    .trim(); // Menghapus spasi dan baris berlebih
+
+                // Masukkan teks bersih ke dalam textarea
+                textarea.val(clipboardData);
+            });
         });
     </script>
 @endpush

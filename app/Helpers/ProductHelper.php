@@ -2,14 +2,14 @@
 
 namespace App\Helpers;
 
-use App\Models\Product;
+use App\Models\TmstProdukModel;
 
 class ProductHelper
 {
-    public static function filterProducts($request)
+    public static function filterProduk($request)
     {
         // Mulai query ke model Product
-        $query = Product::query();
+        $query = TmstProdukModel::query();
 
         // Filter berdasarkan nama produk (jika ada input 'name' di request)
         if ($request->has('name') && !empty($request->name)) {

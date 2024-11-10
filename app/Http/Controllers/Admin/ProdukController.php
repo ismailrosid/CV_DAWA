@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\KategoriProdukModel; // Pastikan model ini di-import
-use App\Models\ProdukModel; // Pastikan model ini di-import
+use App\Models\TmstKategoriProdukModel; // Pastikan model ini di-import
+use App\Models\TmstProdukModel; // Pastikan model ini di-import
 
 class ProdukController extends Controller
 {
@@ -17,7 +17,7 @@ class ProdukController extends Controller
     public function create()
     {
         // Ambil semua kategori dari database
-        $kategori = KategoriProdukModel::all(); // Mengambil semua data kategori
+        $kategori = TmstKategoriProdukModel::all(); // Mengambil semua data kategori
 
         // Kirim data kategori ke view
         return view('admin.pages.produk.create', compact('kategori')); // Menggunakan compact untuk mengirim variabel ke view
@@ -33,7 +33,7 @@ class ProdukController extends Controller
         $anjuran_pemakaian = implode('|||', $request->input('anjuran_pemakaian', []));
 
         // Simpan data ke database
-        $produk = new ProdukModel(); // Ganti ProdukModel dengan model yang sesuai
+        $produk = new TmstProdukModel(); // Ganti ProdukModel dengan model yang sesuai
         $produk->id_kategori = $request->id_kategori;
         $produk->nama = $request->nama_produk;
         $produk->harga = floatval($request->harga);
@@ -58,16 +58,48 @@ class ProdukController extends Controller
     public function edit($id)
     {
         // Mencari produk berdasarkan ID
-        $produk = ProdukModel::findOrFail($id);
+        $produk = TmstProdukModel::findOrFail($id);
         // Ambil semua kategori dari database
-        $kategori = KategoriProdukModel::all(); // Mengambil semua data kategori
+        $kategori = TmstKategoriProdukModel::all(); // Mengambil semua data kategori
         // Mengonversi data yang digabungkan kembali menjadi array
         $produk->tidak_disarankan = explode('|||', $produk->tidak_disarankan);
         $produk->tidak_dikonsumsi_bersama_obat = explode('|||', $produk->tidak_dikonsumsi_bersama_obat);
-        $produk->komposisi = explode('|||', $produk->komposisi);
+        // $produk->komposisi = explode('|||', $produk->komposisi);
         $produk->anjuran_pemakaian = explode('|||', $produk->anjuran_pemakaian);
 
-        return view('admin.pages.produk.edit', compact('produk', 'kategori'));
+
+        // Pisahkan berdasarkan "+++" untuk memproses data
+        $groups = explode("+++", $produk->komposisi);
+
+        $result = [];
+        $currentKey = null;
+
+        foreach ($groups as $group) {
+            // Hapus spasi dan pastikan tidak ada grup kosong
+            $group = trim($group);
+            if ($group === "") {
+                continue;
+            }
+
+            // Jika grup adalah sebuah kata kunci (seperti "test", "example", "demo")
+            if (!is_numeric($group) && strpos($group, "|||") === false) {
+                // Set nilai kunci yang akan digunakan
+                $currentKey = $group;
+            } else {
+                // Pisahkan data dengan "|||"
+                $items = explode("|||", trim($group, "|||"));
+
+                // Tambahkan data dengan kunci dinamis
+                $result[] = [$currentKey => $items];
+            }
+        }
+
+      
+
+
+
+
+        return view('admin.pages.produk.edit', compact('produk', 'kategori', 'result'));
     }
 
 
@@ -82,7 +114,7 @@ class ProdukController extends Controller
         $anjuran_pemakaian = implode('|||', $request->input('anjuran_pemakaian', []));
 
         // Temukan produk berdasarkan ID
-        $produk = ProdukModel::findOrFail($id);
+        $produk = TmstProdukModel::findOrFail($id);
         $produk->id_kategori = $request->id_kategori;
         $produk->nama = $request->nama_produk;
         $produk->harga = floatval($request->harga);
@@ -120,7 +152,7 @@ class ProdukController extends Controller
     public function destroy($id)
     {
         // Mencari tumbuhan berdasarkan ID dan menghapusnya
-        $tumbuhan = ProdukModel::find($id);
+        $tumbuhan = TmstProdukModel::find($id);
         if ($tumbuhan) {
             $tumbuhan->delete();
             return response()->json(['success' => 'Data tumbuhan berhasil dihapus.']);
@@ -132,7 +164,7 @@ class ProdukController extends Controller
     public function getData()
     {
         // Query dasar untuk mengambil data produk dengan relasi kategori
-        $query = ProdukModel::with('kategori') // Mengaitkan model KategoriProdukModel
+        $query = TmstProdukModel::with('kategori') // Mengaitkan model TmstKategoriProdukModel
             ->select('id', 'nama', 'deskripsi', 'id_kategori'); // Menambahkan kolom id_kategori
 
         return datatables()->of($query)

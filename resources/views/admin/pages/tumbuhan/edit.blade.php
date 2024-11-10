@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-outline card-success">
+                    <div class="card card-outline card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Edit Data Tumbuhan</h3>
                             <div class="card-tools">
@@ -50,15 +50,19 @@
                                 <div class="mb-2">
                                     <label class="form-label" for="nama_tumbuhan">NAMA TUMBUHAN:</label>
                                     <input type="text" class="form-control form-control-sm" id="nama_tumbuhan"
-                                        name="nama_tumbuhan" placeholder="Masukan nama tumbuhan"
-                                        value="{{ old('nama_tumbuhan', $tumbuhan->nama) }}" autocomplete="off">
+                                        name="nama_tumbuhan" spellcheck="false" autocomplete="off"
+                                        placeholder="Masukan nama tumbuhan"
+                                        value="{{ old('nama_tumbuhan', $tumbuhan->nama) }}" spellcheck="false"
+                                        autocomplete="off">
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label class="form-label" for="nama_latin">NAMA LATIN:</label>
                                     <input type="text" class="form-control form-control-sm" id="nama_latin"
-                                        name="nama_latin" placeholder="Masukan nama latin"
-                                        value="{{ old('nama_latin', $tumbuhan->nama_latin) }}" autocomplete="off">
+                                        name="nama_latin" spellcheck="false" autocomplete="off"
+                                        placeholder="Masukan nama latin"
+                                        value="{{ old('nama_latin', $tumbuhan->nama_latin) }}" spellcheck="false"
+                                        autocomplete="off">
                                 </div>
                                 <hr>
                                 <!-- Sinonim Section -->
@@ -68,7 +72,8 @@
                                         @foreach ($tumbuhan->sinonims as $sinonim)
                                             <div class="input-group input-group-sm mb-1">
                                                 <input type="text" class="form-control" name="sinonims[]"
-                                                    placeholder="Masukan sinonim" value="{{ $sinonim }}">
+                                                    spellcheck="false" autocomplete="off" placeholder="Masukan sinonim"
+                                                    value="{{ $sinonim }}">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-danger remove-sinonim" type="button">
                                                         <i class="fas fa-minus"></i>
@@ -87,8 +92,8 @@
                                 <!-- Nama Daerah Section -->
                                 <div class="mb-2">
                                     <label for="nama_daerah" class="form-label">NAMA DAERAH:</label>
-                                    <textarea class="form-control form-control-sm" id="nama_daerah" name="nama_daerah" rows="3"
-                                        placeholder="Masukkan nama daerah...">{{ old('nama_daerah', $tumbuhan->nama_daerah) }}</textarea>
+                                    <textarea class="form-control form-control-sm" id="nama_daerah" name="nama_daerah" rows="3" spellcheck="false"
+                                        autocomplete="off" placeholder="Masukkan nama daerah...">{{ old('nama_daerah', $tumbuhan->nama_daerah) }}</textarea>
                                 </div>
                                 <hr>
                                 <!-- Klasifikasi Section -->
@@ -98,115 +103,120 @@
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="kerajaan"
                                             class="form-label">KERJAAN:</label>
                                         <input type="text" class="form-control form-control-sm" id="kerajaan"
-                                            name="kerajaan" placeholder="Masukan Kerajaan"
+                                            name="kerajaan" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Kerajaan"
                                             value="{{ old('kerajaan', $tumbuhan->kerajaan) }}">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="sub_kerajaan"
                                             class="form-label">SUB KERAJAAN:</label>
                                         <input type="text" class="form-control form-control-sm" id="sub_kerajaan"
-                                            name="sub_kerajaan" placeholder="Masukan Sub Kerajaan"
+                                            name="sub_kerajaan" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Sub Kerajaan"
                                             value="{{ old('sub_kerajaan', $tumbuhan->sub_kerajaan) }}">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="super_divisi"
                                             class="form-label">SUPER DIVISI:</label>
                                         <input type="text" class="form-control form-control-sm" id="super_divisi"
-                                            name="super_divisi" placeholder="Masukan Super Divisi"
+                                            name="super_divisi" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Super Divisi"
                                             value="{{ old('super_divisi', $tumbuhan->super_divisi) }}">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="divisi"
                                             class="form-label">DIVISI:</label>
                                         <input type="text" class="form-control form-control-sm" id="divisi"
-                                            name="divisi" placeholder="Masukan Divisi"
-                                            value="{{ old('divisi', $tumbuhan->divisi) }}">
+                                            name="divisi" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Divisi" value="{{ old('divisi', $tumbuhan->divisi) }}">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="kelas"
                                             class="form-label">KELAS:</label>
                                         <input type="text" class="form-control form-control-sm" id="kelas"
-                                            name="kelas" placeholder="Masukan Kelas"
-                                            value="{{ old('kelas', $tumbuhan->kelas) }}">
+                                            name="kelas" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Kelas" value="{{ old('kelas', $tumbuhan->kelas) }}">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="sub_kelas"
                                             class="form-label">SUB KELAS:</label>
                                         <input type="text" class="form-control form-control-sm" id="sub_kelas"
-                                            name="sub_kelas" placeholder="Masukan Sub Kelas"
+                                            name="sub_kelas" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Sub Kelas"
                                             value="{{ old('sub_kelas', $tumbuhan->sub_kelas) }}">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="ordo"
                                             class="form-label">ORDO:</label>
                                         <input type="text" class="form-control form-control-sm" id="ordo"
-                                            name="ordo" placeholder="Masukan Ordo"
-                                            value="{{ old('ordo', $tumbuhan->ordo) }}">
+                                            name="ordo" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Ordo" value="{{ old('ordo', $tumbuhan->ordo) }}">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="famili"
                                             class="form-label">FAMILI:</label>
                                         <input type="text" class="form-control form-control-sm" id="famili"
-                                            name="famili" placeholder="Masukan Famili"
-                                            value="{{ old('famili', $tumbuhan->famili) }}">
+                                            name="famili" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Famili" value="{{ old('famili', $tumbuhan->famili) }}">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="genus"
                                             class="form-label">GENUS:</label>
                                         <input type="text" class="form-control form-control-sm" id="genus"
-                                            name="genus" placeholder="Masukan Genus"
-                                            value="{{ old('genus', $tumbuhan->genus) }}">
+                                            name="genus" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Genus" value="{{ old('genus', $tumbuhan->genus) }}">
                                     </div>
                                     <div class="col-md-4 mb-1">
                                         <label style="font-weight: 400; font-size: 0.8rem;" for="spesies"
                                             class="form-label">SPESIES:</label>
                                         <input type="text" class="form-control form-control-sm" id="spesies"
-                                            name="spesies" placeholder="Masukan Spesies"
+                                            name="spesies" spellcheck="false" autocomplete="off"
+                                            placeholder="Masukan Spesies"
                                             value="{{ old('spesies', $tumbuhan->spesies) }}">
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="deskripsi" class="form-label">DESKRIPSI:</label>
-                                    <textarea class="form-control form-control-sm" id="deskripsi" name="deskripsi" rows="5"
-                                        placeholder="Masukkan deskripsi di sini...">{{ old('deskripsi', $tumbuhan->deskripsi) }}</textarea>
+                                    <textarea class="form-control form-control-sm" id="deskripsi" name="deskripsi" rows="5" spellcheck="false"
+                                        autocomplete="off" placeholder="Masukkan deskripsi di sini...">{{ old('deskripsi', $tumbuhan->deskripsi) }}</textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="bagian_yang_digunakan" class="form-label">BAGIAN YANG DIGUNAKAN:</label>
                                     <textarea class="form-control form-control-sm" id="bagian_yang_digunakan" name="bagian_yang_digunakan"
-                                        rows="5" placeholder="Masukkan bagian yang digunakan di sini...">{{ old('bagian_yang_digunakan', $tumbuhan->bagian_yang_digunakan) }}</textarea>
+                                        rows="5" spellcheck="false" autocomplete="off" placeholder="Masukkan bagian yang digunakan di sini...">{{ old('bagian_yang_digunakan', $tumbuhan->bagian_yang_digunakan) }}</textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="konstituen" class="form-label">KONSTITUEN:</label>
-                                    <textarea class="form-control form-control-sm" id="konstituen" name="konstituen" rows="3"
-                                        placeholder="Masukkan konstituen...">{{ old('konstituen', $tumbuhan->konstituen) }}</textarea>
+                                    <textarea class="form-control form-control-sm" id="konstituen" name="konstituen" rows="3" spellcheck="false"
+                                        autocomplete="off" placeholder="Masukkan konstituen...">{{ old('konstituen', $tumbuhan->konstituen) }}</textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="indikasi" class="form-label">INDIKASI:</label>
-                                    <textarea class="form-control form-control-sm" id="indikasi" name="indikasi" rows="3"
-                                        placeholder="Masukkan indikasi...">{{ old('indikasi', $tumbuhan->indikasi) }}</textarea>
+                                    <textarea class="form-control form-control-sm" id="indikasi" name="indikasi" rows="3" spellcheck="false"
+                                        autocomplete="off" placeholder="Masukkan indikasi...">{{ old('indikasi', $tumbuhan->indikasi) }}</textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="penggunaan_tradisional" class="form-label">PENGGUNAAN TRADISIONAL:</label>
                                     <textarea class="form-control form-control-sm" id="penggunaan_tradisional" name="penggunaan_tradisional"
-                                        rows="3" placeholder="Masukkan penggunaan tradisional...">{{ old('penggunaan_tradisional', $tumbuhan->penggunaan_tradisional) }}</textarea>
+                                        rows="3" spellcheck="false" autocomplete="off" placeholder="Masukkan penggunaan tradisional...">{{ old('penggunaan_tradisional', $tumbuhan->penggunaan_tradisional) }}</textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="dosis_harian" class="form-label">DOSIS HARIAN:</label>
                                     <textarea class="form-control form-control-sm" id="dosis_harian" name="dosis_harian" rows="3"
-                                        placeholder="Masukkan dosis harian...">{{ old('dosis_harian', $tumbuhan->dosis_harian) }}</textarea>
+                                        spellcheck="false" autocomplete="off" placeholder="Masukkan dosis harian...">{{ old('dosis_harian', $tumbuhan->dosis_harian) }}</textarea>
                                 </div>
                                 <hr>
                                 <div class="mb-2">
                                     <label for="kontraindikasi" class="form-label">KONTRAINDIKASI, INTERAKSI, DAN EFEK
                                         SAMPING:</label>
                                     <textarea class="form-control form-control-sm" id="kontraindikasi" name="kontraindikasi" rows="3"
-                                        placeholder="Masukkan kontraindikasi, interaksi, dan efek samping...">{{ old('kontraindikasi', $tumbuhan->kontraindikasi) }}</textarea>
+                                        spellcheck="false" autocomplete="off" placeholder="Masukkan kontraindikasi, interaksi, dan efek samping...">{{ old('kontraindikasi', $tumbuhan->kontra_indikasi) }}</textarea>
                                 </div>
                                 <hr>
 
@@ -217,6 +227,7 @@
                                         @foreach ($tumbuhan->daftar_pustaka as $pustaka)
                                             <div class="input-group input-group-sm mb-1">
                                                 <input type="text" class="form-control" name="daftar_pustaka[]"
+                                                    spellcheck="false" autocomplete="off"
                                                     placeholder="Masukan daftar pustaka" value="{{ $pustaka }}">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-danger remove-daftar-pustaka" type="button">
@@ -241,6 +252,7 @@
                                         @foreach ($tumbuhan->sumber_internet as $sumber)
                                             <div class="input-group input-group-sm mb-1">
                                                 <input type="text" class="form-control" name="sumber_internet[]"
+                                                    spellcheck="false" autocomplete="off"
                                                     placeholder="Masukan sumber internet" value="{{ $sumber }}">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-danger remove-sumber-internet" type="button">
@@ -264,8 +276,8 @@
                                         @foreach ($tumbuhan->link_gambar as $gambar)
                                             <div class="input-group input-group-sm mb-1">
                                                 <input type="text" class="form-control" name="link_gambar[]"
-                                                    accept="image/*" placeholder="Masukan link gambar"
-                                                    value="{{ $gambar }}">
+                                                    accept="image/*" spellcheck="false" autocomplete="off"
+                                                    placeholder="Masukan link gambar" value="{{ $gambar }}">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-danger remove-link-gambar" type="button">
                                                         <i class="fas fa-minus"></i>
@@ -309,7 +321,7 @@
             $('#add-sinonim').click(function() {
                 const newInput = $(`
         <div class="input-group input-group-sm mb-1">
-            <input type="text" class="form-control form-control-sm" name="sinonims[]" placeholder="Masukan sinonim">
+            <input type="text" class="form-control form-control-sm" name="sinonims[]" spellcheck="false"  autocomplete="off" placeholder="Masukan sinonim">
             <div class="input-group-append">
                 <button class="btn btn-danger remove-sinonim" type="button">
                     <i class="fas fa-minus"></i>
@@ -339,7 +351,7 @@
             $('#add-daftar-pustaka').click(function() {
                 const newInput = $(`
         <div class="input-group input-group-sm mb-1">
-            <input type="text" class="form-control" name="daftar_pustaka[]" placeholder="Masukan daftar pustaka">
+            <input type="text" class="form-control" name="daftar_pustaka[]" spellcheck="false"  autocomplete="off" placeholder="Masukan daftar pustaka">
             <div class="input-group-append">
                 <button class="btn btn-danger remove-daftar-pustaka" type="button">
                     <i class="fas fa-minus"></i>
@@ -369,7 +381,7 @@
             $('#add-sumber-internet').click(function() {
                 const newInput = $(`
         <div class="input-group input-group-sm mb-1">
-            <input type="text" class="form-control" name="sumber_internet[]" placeholder="Masukan sumber internet">
+            <input type="text" class="form-control" name="sumber_internet[]" spellcheck="false"  autocomplete="off" placeholder="Masukan sumber internet">
             <div class="input-group-append">
                 <button class="btn btn-danger remove-sumber-internet" type="button">
                     <i class="fas fa-minus"></i>
@@ -399,7 +411,7 @@
             $('#add-link-gambar').click(function() {
                 const newInput = $(`
         <div class="input-group input-group-sm mb-1">
-            <input type="text" class="form-control" name="link-gambar[]" placeholder="Masukan link gambar">
+            <input type="text" class="form-control" name="link-gambar[]" spellcheck="false"  autocomplete="off" placeholder="Masukan link gambar">
             <div class="input-group-append">
                 <button class="btn btn-danger remove-link-gambar" type="button">
                     <i class="fas fa-minus"></i>
@@ -669,6 +681,19 @@
                 const fileName = $(this).val().split('\\').pop();
                 // Menampilkan nama file pada label
                 $(this).next('.custom-file-label').text(fileName);
+            });
+
+            $('textarea').on('paste', function(e) {
+                const textarea = $(this);
+                e.preventDefault();
+
+                // Mendapatkan teks yang di-paste dan membersihkan format tambahan
+                let clipboardData = (e.originalEvent || e).clipboardData.getData('text/plain');
+                clipboardData = clipboardData.replace(/\s+/g, ' ')
+                    .trim(); // Menghapus spasi dan baris berlebih
+
+                // Masukkan teks bersih ke dalam textarea
+                textarea.val(clipboardData);
             });
 
         });

@@ -10,14 +10,15 @@
        <!-- Hero Section End -->
 
        <!-- Breadcrumb Section Begin -->
-       <section style="margin-top: 80px;" class="breadcrumb-section set-bg" data-setbg="bg.jpeg">
+       <section style="margin-top: 80px;" class="breadcrumb-section set-bg"
+           data-setbg="{{ asset('front/img/breadcrumb.jpeg') }}">
            <div class="container">
                <div class="row">
                    <div class="col-lg-12 text-center">
                        <div class="breadcrumb__text">
                            <h2>MediPlants</h2>
                            <div class="breadcrumb__option">
-                               <a href="{{ url('/') }}">Beranda</a>
+                               <a href="{{ url('beranda') }}">Beranda</a>
                                <span>Kemitraan</span>
                            </div>
                        </div>

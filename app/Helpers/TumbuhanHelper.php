@@ -2,14 +2,14 @@
 
 namespace App\Helpers;
 
-use App\Models\TumbuhanModel;
+use App\Models\TmstTumbuhanModel;
 
 class TumbuhanHelper
 {
     public static function filterTumbuhan($request)
     {
         // Mulai query ke model Tumbuhan
-        $query = TumbuhanModel::query();
+        $query = TmstTumbuhanModel::query();
 
         // Filter berdasarkan nama tumbuhan (jika ada input 'name' di request)
         if ($request->has('name') && !empty($request->name)) {

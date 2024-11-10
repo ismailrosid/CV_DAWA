@@ -18,6 +18,7 @@ return [
         'passwords' => 'users',
     ],
 
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -62,8 +63,10 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\TmstUserModel::class, // Pastikan ini mengarah ke model Anda
         ],
+
+
 
         // 'users' => [
         //     'driver' => 'database',

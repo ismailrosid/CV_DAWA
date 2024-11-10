@@ -28,14 +28,14 @@
            <!-- Hero Section End -->
 
            <!-- Breadcrumb Section Begin -->
-           <section class="breadcrumb-section set-bg" data-setbg="{{ asset('bg.jpeg') }}">
+           <section class="breadcrumb-section set-bg" data-setbg="{{ asset('front/img/breadcrumb.jpeg') }}">
                <div class="container">
                    <div class="row">
                        <div class="col-lg-12 text-center">
                            <div class="breadcrumb__text">
                                <h2>MediPlants</h2>
                                <div class="breadcrumb__option">
-                                   <a href="{{ route('/') }}">Beranda</a>
+                                   <a href="{{ route('beranda') }}">Beranda</a>
                                    <a href="{{ route('tumbuhan.index') }}">Tumbuhan</a>
                                    <span>Detail Tumbuhan</span>
                                </div>
@@ -78,49 +78,55 @@
                    </div> --}}
                    <div class="row">
                        <div class="col-lg-3 col-md-5">
-                           <img class="img-fluid" src="{{ asset('tag_a.png') }}" alt="">
+                           <img class="img-fluid" src="{{ asset('front/img/tumbuhan/a.png') }}" alt="">
                        </div>
                        <div class="col-lg-9 col-md-7">
                            <div class="row">
                                <div class="col-12">
                                    <div class="blog-box">
-                                       <div class="blog-img border">
-                                           <img class="w-100 h-100" src="{{ asset('images/blog-img.jpg') }}"
-                                               alt="" />
-                                       </div>
                                        <div class="blog-content">
                                            <div class="title-blog">
-                                               <h3 class="text-center mb-1">{{ $data['title'] }}</h3>
+                                               <h3 class="text-center mb-1">{{ $data['nama'] }}</h3>
                                                <h6 class="text-center fs-6 font-italic text-muted"
                                                    style="font-size: 0.8rem;">
                                                    {{ $data['nama_latin'] }}
                                                </h6>
+                                               <div class="my-4 d-flex justify-content-center">
+                                                   <img class="img-fluid"
+                                                       src="{{ asset('front/img/tumbuhan/' . $data['gambar']) }}"
+                                                       alt="{{ $data['nama'] }}" />
+                                               </div>
                                                <div class="my-4">
                                                    <h5 class="h5">SINONIM:</h5>
-                                                   @php
-                                                       // Pecah string sinonim menjadi array menggunakan explode
-                                                       $sinonimArray = explode('|', $data['sinonim']);
-                                                   @endphp
                                                    <div class="row">
-                                                       @foreach ($sinonimArray as $index => $sinonim)
-                                                           <div class="col-6">
-                                                               <p class="paragrafh-dtl font-italic">{{ $sinonim }}
-                                                               </p>
-                                                           </div>
-                                                       @endforeach
+                                                       <div class="col-6">
+                                                           <p class="paragrafh-dtl font-italic">
+                                                               @foreach (array_slice(explode('|||', $data['sinonim']), 0, ceil(count(explode('|||', $data['sinonim'])) / 2)) as $sinonim)
+                                                                   <span>{{ $sinonim }}</span><br>
+                                                               @endforeach
+                                                           </p>
+                                                       </div>
+
+                                                       <div class="col-6">
+                                                           <p class="paragrafh-dtl font-italic">
+                                                               @foreach (array_slice(explode('|||', $data['sinonim']), ceil(count(explode('|||', $data['sinonim'])) / 2)) as $sinonim)
+                                                                   <span>{{ $sinonim }}</span><br>
+                                                               @endforeach
+                                                           </p>
+                                                       </div>
                                                    </div>
                                                </div>
-                                               {{--  --}}
+
+
                                                <div class="my-4">
                                                    <h5 class="h5">NAMA DAERAH:</h5>
-                                                   <p class="paragrafh-dtl text-justify">Das-pedas (Aceh), Adas (Melayu),
-                                                       Adas manis
-                                                       (Minangkabau), Hades (Sunda), Adas
-                                                       (Jawa Tengah), Adhas
-                                                       (Madura), Adas (Bali), Walawunga (Sumba), Rempusa (Makasar), Adase
-                                                       (Bugis). </p>
+                                                   <p class="paragrafh-dtl text-justify">
+                                                       @foreach (explode('|||', $data['nama_daerah']) as $daerah)
+                                                           <span>{{ $daerah }}</span><br>
+                                                       @endforeach
+                                                   </p>
                                                </div>
-                                               {{--  --}}
+
                                                <div class="my-4">
                                                    <h5 class="h5">KLASIFIKASI:</h5>
                                                    <table>
@@ -132,7 +138,7 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Plantae (Tumbuhan)</p>
+                                                               <p>{{ $data['kerajaan'] }}</p>
                                                            </td>
                                                        </tr>
                                                        <tr class="paragrafh-dtl">
@@ -143,7 +149,7 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Tracheobionta (Tumbuhan berpembuluh)</p>
+                                                               <p>{{ $data['sub_kerajaan'] }}</p>
                                                            </td>
                                                        </tr>
                                                        <tr class="paragrafh-dtl">
@@ -154,7 +160,7 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Spermatophyta (Tumbuhan berbiji)</p>
+                                                               <p>{{ $data['super_divisi'] }}</p>
                                                            </td>
                                                        </tr>
                                                        <tr class="paragrafh-dtl">
@@ -165,7 +171,7 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Magnoliophyta (Tumbuhan berbunga)</p>
+                                                               <p>{{ $data['divisi'] }}</p>
                                                            </td>
                                                        </tr>
                                                        <tr class="paragrafh-dtl">
@@ -176,7 +182,7 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Magnoliopsida (Berkeping dua/ Dikotil)</p>
+                                                               <p>{{ $data['kelas'] }}</p>
                                                            </td>
                                                        </tr>
                                                        <tr class="paragrafh-dtl">
@@ -187,7 +193,7 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Rosidae</p>
+                                                               <p>{{ $data['sub_kelas'] }}</p>
                                                            </td>
                                                        </tr>
                                                        <tr class="paragrafh-dtl">
@@ -198,7 +204,7 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Apiales</p>
+                                                               <p>{{ $data['ordo'] }}</p>
                                                            </td>
                                                        </tr>
                                                        <tr class="paragrafh-dtl">
@@ -209,7 +215,7 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Apiaceae</p>
+                                                               <p>{{ $data['famili'] }}</p>
                                                            </td>
                                                        </tr>
                                                        <tr class="paragrafh-dtl">
@@ -220,7 +226,7 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Foeniculum Mill.</p>
+                                                               <p>{{ $data['genus'] }}</p>
                                                            </td>
                                                        </tr>
                                                        <tr class="paragrafh-dtl">
@@ -231,166 +237,96 @@
                                                                <p>:</p>
                                                            </td>
                                                            <td>
-                                                               <p>Foeniculum vulgare Mill.</p>
+                                                               <p>{{ $data['spesies'] }}</p>
                                                            </td>
                                                        </tr>
                                                    </table>
                                                </div>
-                                               {{--  --}}
+
                                                <div class="my-4">
                                                    <h5 class="h5">DESKRIPSI:</h5>
-                                                   <p class="paragrafh-dtl text-justify indent"> Habitus berupa perdu
-                                                       tahunan
-                                                       dengan tinggi ±2
-                                                       m.
-                                                       Batang berlubang, beruas,
-                                                       beralur, dengan percabangan
-                                                       monopodial dan warnanya hijau keputih-putihan. Daun majemuk, menyirip
-                                                       ganda, bentuk daun jarum
-                                                       dengan ujung
-                                                       dan pangkalnya runcing, terdapat aurikel pada ujungnya, tepi rata,
-                                                       panjang daun 30 - 50 cm, lebar 15
-                                                       - 25
-                                                       cm, dan panjang pelepahnya 5 - 7 cm, hijau muda, hijau. Bunga
-                                                       majemuk, berbentuk payung, terdapat di
-                                                       ujung
-                                                       batang, kelopak bunga berbentuk tabung dengan warna hijau, jumlah
-                                                       helai mahkota ada lima dan
-                                                       berwarna
-                                                       kuning. Bentuk buah lonjong, beralur, panjangnya 6 - 10 mm dan lebar
-                                                       3 - 4 mm, warna hijau bila muda
-                                                       dan
-                                                       hijau keabu-abuan bila sudah tua. Akar tunggang dan berwarna putih.
+                                                   <p class="paragrafh-dtl text-justify indent">
+                                                       {{ $data['deskripsi'] }}
                                                    </p>
                                                </div>
-                                               {{--  --}}
+
                                                <div class="my-4">
                                                    <h5 class="h5">BAGIAN YANG DIGUNAKAN:</h5>
                                                    <p class="paragrafh-dtl text-justify">
-                                                       Minyak adas yang diekstraksi dari buah yang matang dan buah yang
-                                                       dikeringkan.
+                                                       {{ $data['bagian_yang_digunakan'] }}
                                                    </p>
                                                </div>
-                                               {{--  --}}
+
                                                <div class="my-4">
                                                    <h5 class="h5">KONSTITUEN:</h5>
                                                    <p class="paragrafh-dtl text-justify indent">
-                                                       Minyak esensial: Asam-anisat, dipenten. Buah: Asam-anisat, apiol,
-                                                       dianetol, asam-askorbat, asam-benzoat. Daun: Avikularin,
-                                                       asam-klorogenat, sinarosida, guaoja - verin, kaempferol. Tanaman: 1,8
-                                                       - sineol, anetol, anisaldehida, sinarin, dipenten, asam-glikolat,
-                                                       kaempferol. Akar: Asam - glikolat, stigmasterol, umbeliferon. Minyak
-                                                       esensial biji: Alfa-terpinen, anisaldehida, kamfen, karvon,
-                                                       sitronelal, asam-oleat. Tunas: Dilapiol, estragol, eugenol,
-                                                       P-anisaldehida, trans - anetol.
+                                                       {{ $data['konstituen'] }}
                                                    </p>
                                                </div>
-                                               {{--  --}}
+
                                                <div class="my-4">
                                                    <h5 class="h5">INDIKASI:</h5>
                                                    <p class="paragrafh-dtl text-justify indent">
-                                                       Abses gigi, Alaktea, Amenorea, Andropause, Anoreksia, Apnea, Asma,
-                                                       Bakteria, Batuk, Kram, Bau badan, Bau mulut, Bengkak, Cacingan,
-                                                       Cegukan, Demam, Diare, Disentri, Dispepsia, Disuria, Enuresis,
-                                                       Frigiditas, Gigitan hewan, Gigitan ular, Gonorea, Hernia, Impotensi,
-                                                       Indurasi, Infeksi, Infeksi jamur di dalam atau di bagian tubuh,
-                                                       Inflamasi, Jamur, Jantung, Kanker, Kanker diafragma, Kanker gusi,
-                                                       Kanker hati, Kanker lambung, Kanker limpa, Kanker payudara, Kanker
-                                                       prostat, Kanker Rahim, Kanker tenggorokan, Kanker uvula, Kegemukan,
-                                                       Kehausan, Kejantanan, Keriput, Kista pada kulit, Kolera, Kolik,
-                                                       Kolitis, Kusta, Kutil genitalis, Leukemia, Luka, Mabuk perjalanan,
-                                                       Masuk angin, Mempermudah kelahiran, Menopause, Mual, Mual saat hamil
-                                                       muda, Mulas, Muntah, Nyeri, Nyeri abdomen, Nyeri haid, Nyeri
-                                                       punggung, Nyeri samping, Nyeri telinga, Oftalmia, Oligogalaktia,
-                                                       Osteoporosis, Penyakit bronkus, Penyakit ginjal, Penyakit hati,
-                                                       Penyakit kandung empedu, Penyakit kelamin, Penyakit kelopak mata,
-                                                       Penyakit konjungtiva, Penyakit kuning, Penyakit lambung, Penyakit
-                                                       limpa, Penyakit paru, Penyakit pernafasan, Penyakit Rahim, Penyakit
-                                                       rongga mulut, Penyakit tenggorokan, Penyakit usus, Perasaan penuh
-                                                       atau tekanan di telinga, Radang selaput lendir hidung dan
-                                                       tenggorokan, Retensi cairan, Sakit gigi, Sakit kepala, Selesma,
-                                                       Selulit, Sendawa, Sindrom iritasi usus besar, Skirus, Spasme, Sperma
-                                                       encer, Stranguria, Tenesmus, Virus.
+                                                       {{ $data['indikasi'] }}
                                                    </p>
                                                </div>
-                                               {{--  --}}
+
                                                <div class="my-4">
-                                                   <h5 class="h5">
-                                                       PENGGUNAAN TRADISIONAL:
-                                                   </h5>
+                                                   <h5 class="h5">PENGGUNAAN TRADISIONAL:</h5>
                                                    <p class="paragrafh-dtl text-justify indent">
-                                                       Abses gigi, Alaktea, Amenorea, Andropause, Anoreksia, Apnea, Asma,
-                                                       Bakteria, Batuk, Kram, Bau badan, Bau mulut, Bengkak, Cacingan,
-                                                       Cegukan, Demam, Diare, Disentri, Dispepsia, Disuria, Enuresis,
-                                                       Frigiditas, Gigitan hewan, Gigitan ular, Gonorea, Hernia, Impotensi,
-                                                       Indurasi, Infeksi, Infeksi jamur di dalam atau di bagian tubuh,
-                                                       Inflamasi, Jamur, Jantung, Kanker, Kanker diafragma, Kanker gusi,
-                                                       Kanker hati, Kanker
+                                                       {{ $data['penggunaan_tradisional'] }}
                                                    </p>
                                                </div>
-                                               {{--  --}}
+
                                                <div class="my-4">
-                                                   <h5 class="h5">
-                                                       DOSIS HARIAN:
-                                                   </h5>
+                                                   <h5 class="h5">DOSIS HARIAN:</h5>
                                                    <p class="paragrafh-dtl text-justify indent">
-                                                       Abses gigi, Alaktea, Amenorea, Andropause, Anoreksia, Apnea, Asma,
-                                                       Bakteria, Batuk, Kram, Bau badan, Bau mulut, Bengkak, Cacingan,
-                                                       Cegukan, Demam, Diare, Disentri, Dispepsia, Disuria, Enuresis,
-                                                       Frigiditas, Gigitan hewan, Gigitan ular, Gonorea, Hernia, Impotensi,
-                                                       Indurasi, Infeksi, Infeksi jamur di dalam atau di bagian tubuh,
-                                                       Inflamasi, Jamur, Jantung, Kanker, Kanker diafragma, Kanker gusi,
-                                                       Kanker hati, Kanker
+                                                       {{ $data['dosis_harian'] }}
                                                    </p>
                                                </div>
-                                               {{--  --}}
+
                                                <div class="my-4">
-                                                   <h5 class="h5">
-                                                       KONTRAINDIKASI, INTERAKSI, DAN EFEK SAMPING:
-                                                   </h5>
+                                                   <h5 class="h5">KONTRAINDIKASI, INTERAKSI, DAN EFEK SAMPING:</h5>
                                                    <p class="paragrafh-dtl text-justify indent">
-                                                       “Bahaya dan/ efek samping yang tidak dikenal untuk dosis terapi yang
-                                                       tepat". Tidak ada kontraindikasi untuk teh herbal (ataupun sediaan
-                                                       yang lainnya yang menyediakan dosis yang sama dengan minyak
-                                                       esensial), namun bentuk sediaan lainnya (misalnya, minyak esensial)
-                                                       harus dihindari selama kehamilan. Minyak esensial juga harus
-                                                       dihindari pada bayi dan anak-anak kecil. Pada ibu menyusui yang
-                                                       menggunakan adas manis sebagai minuman teh untuk merangsang laktasi,
-                                                       akan mengalami gangguan sementara SSP, emesis, lesu, ASI berkurang,
-                                                       kegelisahan, dan ketidakaktifan bayi yang baru lahir (berusia 15 - 20
-                                                       hari), mungkin karena anetol dalam susu. Harus dihindari oleh wanita
-                                                       yang sedang hamil, menyusui, atau dengan kanker yang ketergantungan
-                                                       estrogen. Dampak buruk: reaksi alergi kulit dan paru-paru. Adas
-                                                       memiliki risiko alergi rendah. Adas dapat menyebabkan asma dengan
-                                                       disposisi atopik. Biji tidak dikonsumsi lebih dari 6 g biji/ hari,
-                                                       kemungkinan karena anetol estrogenik dan estragol karsinogenik. "Obat
-                                                       ini dikontraindikasikan pada radang ginjal", karena minyak esensial
-                                                       dapat meningkatkan peradangan yang disebabkan iritasi epitel. Ekstrak
-                                                       adas dapat mendorong estrus (gairah birahi wanita) dan menyebabkan
-                                                       pertumbuhan kelenjar susu. Dosis moderat ekstrak aseton meningkatkan
-                                                       berat kelenjar susu pada tikus. LD50 Minyak Esensial 3.120 = 4.500
-                                                       ml/ kg secara oral, LD50 anetol 2.090 mg/ kg ORL tikus, LD50 biji
-                                                       adas tingtur => 3.000 mg/ kg ORL tikus (setara dengan 30.000 bibit).
-                                                       Penelitian awal pada hewan telah menunjukkan bahwa adas dapat
-                                                       mengurangi penyerapan Siprofloksasin (Antibiotik yang digunakan untuk
-                                                       mengobati infeksi bakteri). Siprofloksasin menembus berbagai jaringan
-                                                       yang sulit dijangkau dalam tubuh dan membunuh berbagai macam bakteri.
-                                                       Interaksi ini mungkin karena herbal ini kaya dengan kandungan
-                                                       mineral. Orang yang mengkonsumsi obat Siprofloksasin sebaiknya
-                                                       menghindari penggunaan adas sampai diketahui lebih jauh lagi
-                                                       informasinya.
+                                                       {{ $data['kontra_indikasi'] }}
                                                    </p>
                                                </div>
-                                               {{--  --}}
+
+                                               <div class="my-4">
+                                                   <h5 class="h5">SUMBER INTERNET:</h5>
+                                                   <p class="paragrafh-dtl">
+                                                       @foreach (explode('|||', $data['sumber_internet']) as $sumber)
+                                                           <span>{{ $sumber }}</span><br>
+                                                       @endforeach
+                                                   </p>
+                                               </div>
+
+                                               <div class="my-4">
+                                                   <h5 class="h5">TAUTAN GAMBAR:</h5>
+                                                   <p class="paragrafh-dtl">
+                                                       @foreach (explode('|||', $data['link_gambar']) as $gambar)
+                                                           <span>{{ $gambar }}</span><br>
+                                                       @endforeach
+                                                   </p>
+                                               </div>
+
+                                               <div class="my-4">
+                                                   <h5 class="h5">DAFTAR PUSTAKA:</h5>
+                                                   <p class="paragrafh-dtl">
+                                                       @foreach (explode('|||', $data['daftar_pustaka']) as $pustaka)
+                                                           <span>{{ $pustaka }}</span><br>
+                                                       @endforeach
+                                                   </p>
+                                               </div>
                                            </div>
                                        </div>
-                                   </div>
-                               </div>
 
+                                   </div>
+
+                               </div>
                            </div>
                        </div>
                    </div>
-               </div>
            </section>
            <!-- Product Section End -->
            <!-- Tambahkan hidden input untuk category_id -->

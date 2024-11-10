@@ -57,6 +57,17 @@
                     confirmButtonText: 'OK'
                 });
             </script>
+        @elseif (session('welcome'))
+            <script>
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: 'Berhasil!',
+                    text: "{{ session('welcome') }}",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            </script>
         @else
             <!-- Preloader -->
             <div class="preloader flex-column justify-content-center align-items-center">

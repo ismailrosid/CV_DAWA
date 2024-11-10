@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-12">
 
-                    <div class="card card-outline card-success">
+                    <div class="card card-outline card-primary">
                         <!-- /.card-header -->
                         <div class="card-header">
                             <h3 class="card-title">Data Tumbuhan</h3>
@@ -70,11 +70,13 @@
                                     <tr class="">
                                         <th style="width: 7%"
                                             class="border-left-0 border-top-0 border-bottom-0 text-center">NO</th>
-                                        <th style="width: 25%" class="border-left-0 border-top-0 border-bottom-0">NAMA
+                                        <th style="width: 25%"
+                                            class="border-left-0 border-top-0 border-bottom-0 text-center">NAMA
                                             TUMBUHAN</th>
-                                        <th style="width: 20%" class="border-left-0 border-top-0 border-bottom-0">NAMA LATIN
+                                        <th style="width: 20%"
+                                            class="border-left-0 border-top-0 border-bottom-0 text-center">NAMA LATIN
                                         </th>
-                                        <th class="border-left-0 border-top-0 border-bottom-0">DESKRIPSI
+                                        <th class="border-left-0 border-top-0 border-bottom-0 text-center">DESKRIPSI
                                         </th>
                                         <th style="width: 10%"
                                             class="border-left-0 border-top-0 border-bottom-0 text-center">AKSI
@@ -212,8 +214,8 @@
                         }
                     },
                     {
-                        text: 'Add Data',
-                        className: 'btn btn-primary',
+                        text: 'Tambah Data',
+                        className: 'btn-primary',
                         action: function(e, dt, node, config) {
                             window.location.href = "{{ route('admin.tumbuhan.create') }}";
                         }

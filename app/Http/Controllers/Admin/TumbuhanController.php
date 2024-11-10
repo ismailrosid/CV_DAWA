@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\TumbuhanModel; // Pastikan untuk mengimpor model
+use App\Models\TmstTumbuhanModel; // Pastikan untuk mengimpor model
 use Illuminate\Http\Request;
 use App\Helpers\DataTableHelper;
 
@@ -29,7 +29,7 @@ class TumbuhanController extends Controller
         $daftar_pustaka = implode('|||', $request->input('daftar_pustaka', [])); // Menambahkan daftar pustaka
 
         // Simpan data ke database
-        $tumbuhan = new TumbuhanModel();
+        $tumbuhan = new TmstTumbuhanModel();
         $tumbuhan->nama = $request->nama_tumbuhan;
         $tumbuhan->nama_latin = $request->nama_latin;
         $tumbuhan->sinonim = $sinonims; // Simpan sebagai string
@@ -73,7 +73,7 @@ class TumbuhanController extends Controller
 
     public function edit($id)
     {
-        $tumbuhan = TumbuhanModel::findOrFail($id);
+        $tumbuhan = TmstTumbuhanModel::findOrFail($id);
         // Mengonversi data yang digabungkan kembali menjadi array
         $tumbuhan->sinonims = explode('|||', $tumbuhan->sinonim);
         $tumbuhan->sumber_internet = explode('|||', $tumbuhan->sumber_internet);
@@ -95,7 +95,7 @@ class TumbuhanController extends Controller
         $daftar_pustaka = implode('|||', $request->input('daftar_pustaka', [])); // Menambahkan daftar pustaka
 
         // Mencari data tumbuhan berdasarkan ID
-        $tumbuhan = TumbuhanModel::findOrFail($id);
+        $tumbuhan = TmstTumbuhanModel::findOrFail($id);
 
         // Memperbarui data tumbuhan
         $tumbuhan->nama = $request->nama_tumbuhan;
@@ -152,7 +152,7 @@ class TumbuhanController extends Controller
     public function destroy($id)
     {
         // Mencari tumbuhan berdasarkan ID dan menghapusnya
-        $tumbuhan = TumbuhanModel::find($id);
+        $tumbuhan = TmstTumbuhanModel::find($id);
         if ($tumbuhan) {
             $tumbuhan->delete();
             return response()->json(['success' => 'Data tumbuhan berhasil dihapus.']);
@@ -164,7 +164,7 @@ class TumbuhanController extends Controller
     {
         // Query dasar untuk mengambil data tumbuhan
 
-        $query = TumbuhanModel::select('id', 'nama', 'nama_latin', 'deskripsi');
+        $query = TmstTumbuhanModel::select('id', 'nama', 'nama_latin', 'deskripsi');
 
         return datatables()->of($query)
             ->addIndexColumn() // Menambahkan kolom nomor urut

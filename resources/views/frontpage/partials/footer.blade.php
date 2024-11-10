@@ -59,9 +59,12 @@
                     {{--  --}}
                     <div class="my-3">Market Place:</div>
                     <div class="footer__widget__social">
-                        <a href="#"><img class="img-fluid p-2" src="{{ asset('S.png') }}" alt=""></a>
-                        <a href="#"><img class="img-fluid p-2" src="{{ asset('T.png') }}" alt=""></a>
-                        <a href="#"><img class="img-fluid p-2" src="{{ asset('L.png') }}" alt=""></a>
+                        <a href="#"><img class="img-fluid p-2" src="{{ asset('front/img/shoppe.png') }}"
+                                alt=""></a>
+                        <a href="#"><img class="img-fluid p-2" src="{{ asset('front/img/tokopedia.png') }}"
+                                alt=""></a>
+                        <a href="#"><img class="img-fluid p-2" src="{{ asset('front/img/lazada.png') }}"
+                                alt=""></a>
                     </div>
 
                     <div class="my-3">Follow Kami:</div>
